@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Essays on philosophy, health recommendations, supplement guides, and curated resources by Zac.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Zacnet</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background: white;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+        a {
+            color: #666;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: #0066cc;
+        }
+        h1 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #000;
+        }
+        h2 {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 25px 0 20px 0;
+            color: #333;
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+        .section-title {
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .section-title:hover {
+            color: #0066cc;
+        }
+        .item {
+            margin-bottom: 12px;
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 16px;
+        }
+        .item:hover {
+            color: #0066cc;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        p {
+            margin-bottom: 24px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            body {
+                background: white !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Home Page -->
+    <main id="home" class="page active">
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('about')">About</a>
+        </nav>
+
+        <header>
+            <h1>Zacnet</h1>
+        </header>
+
+        <section>
+            <h2 class="section-title" onclick="showPage('essays')">Essays</h2>
+            <div class="item" onclick="window.open('https://docs.google.com/document/d/1wuXikIGCZSV3_1NdrT5UnsjGQUPH592_rb6K14jjBHU/edit?usp=sharing')">Action's Foundations: Actional Relations and Action-Making Relations</div>
+            <div class="item" onclick="window.open('https://docs.google.com/document/d/1r-m5KCOQeicZtVJ-MaYo5kdXnwJYqn1cAiOVFvQJgdw/edit?usp=sharing')">The Indispensability of Mental Representation in Language and Behavior</div>
+            <div class="item" onclick="window.open('https://drive.google.com/file/d/1oPPAZOgm_8nwz-uuiubK0QrbJkeE7i-L/view?usp=sharing')">A Problem of Perception: Direct Realism & Representationalism</div>
+            <div class="item" onclick="window.open('https://docs.google.com/document/d/1NcsV8DU9C4OZHxWS7mewJInSqAN1KR4FZUQ3pRM6qtc/edit?usp=sharing')">Plastic Recycling and the Consequences of Selective Data Presentation</div>
+        </section>
+
+        <section>
+            <h2 class="section-title" onclick="showPage('philosophy')">Philosophy</h2>
+            <div class="item" onclick="showPage('philosophy1')">Current Philosophy</div>
+            <div class="item" onclick="showPage('philosophy2')">Compilation of Arguments</div>
+        </section>
+
+        <section>
+            <h2 class="section-title" onclick="showPage('thoughts')">Findings and Recommendations</h2>
+            <div class="item" onclick="showPage('thought4')">Current Supplements</div>
+            <div class="item" onclick="showPage('thought2')">(Anecdotal) Health Recommendations</div>
+            <div class="item" onclick="showPage('thought5')">Safe Products</div>
+            <div class="item" onclick="showPage('thought3')">Red-Near Infrared Light Recommendations</div>
+            <div class="item" onclick="showPage('thought1')">Recommended Websites</div>
+        </section>
+    </main>
+
+    <!-- About Page -->
+    <main id="about" class="page">
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('about')">About</a>
+        </nav>
+
+        <header>
+            <h1>About</h1>
+        </header>
+
+        <section>
+            <p>This is a website where I add anything worth sharing. Note that whatever recommendations I have here are anecdotal; they consist in things that have worked for me or that I have found interesting.</p>
+        </section>
+    </main>
+
+    <!-- Essays Page -->
+    <main id="essays" class="page">
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('about')">About</a>
+        </nav>
+
+        <header>
+            <h1>All Essays</h1>
+        </header>
+
+        <section>
+            <div class="item" onclick="window.open('https://drive.google.com/file/d/1E-DnjCI_gF46cX93Ufl2pbI3WJei63Q5/view?usp=sharing')">A Defense and Evaluation of Spinoza's Ontological Argument</div>
+            <div class="item" onclick="window.open('https://drive.google.com/file/d/1oPPAZOgm_8nwz-uuiubK0QrbJkeE7i-L/view?usp=sharing')">A Problem of Perception: Direct Realism & Representationalism</div>
+            <div class="item" onclick="window.open('https://docs.google.com/document/d/1wuXikIGCZSV3_1NdrT5UnsjGQUPH592_rb6K14jjBHU/edit?usp=sharing')">Action's Foundations: Actional Relations and Action-Making Relations</div>
+            <div class="item" onclick="window.open('https://docs.google.com/document/d/1NcsV8DU9C4OZHxWS7mewJInSqAN1KR4FZUQ3pRM6qtc/edit?usp=sharing')">Plastic Recycling and the Consequences of Selective Data Presentation</div>
+            <div class="item" onclick="window.open('https://docs.google.com/document/d/1r-m5KCOQeicZtVJ-MaYo5kdXnwJYqn1cAiOVFvQJgdw/edit?usp=sharing')">The Indispensability of Mental Representation in Language and Behavior</div>
+            <div class="item" onclick="window.open('https://docs.google.com/document/d/1T-9xk7cxsBRHYLISrBvSVVszoC7Ra3t6wLMGPLBbLNY/edit?usp=sharing')">Kant's Critique of the Cosmological and Ontological Arguments</div>
+            <div class="item" onclick="window.open('https://docs.google.com/document/d/1dMyHZQL_l5nbnB9W_UI-I3GrAV8Re3pLjQffVleB7i8/edit?usp=sharing')">Against Middle Knowledge</div>
+        </section>
+    </main>
+
+    <!-- Philosophy Page -->
+    <main id="philosophy" class="page">
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('about')">About</a>
+        </nav>
+
+        <header>
+            <h1>All Philosophy</h1>
+        </header>
+
+        <section>
+            <div class="item" onclick="showPage('philosophy1')">Current Philosophy</div>
+            <div class="item" onclick="showPage('philosophy2')">Compilation of Arguments</div>
+        </section>
+    </main>
+
+    <!-- Individual Philosophy Pages -->
+    <article id="philosophy1" class="page">
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('philosophy')">Philosophy</a>
+        </nav>
+
+        <header>
+            <h1>Current Philosophy</h1>
+        </header>
+
+        <section>
+            <p>Physicalism is untenable in any form. There is a compilation of arguments against it in Arguments, however I will refrain from referring to that material here. Instead, I will highlight the reasoning that has led me to <a href="https://www.youtube.com/watch?v=L1HaSlhQTqk&t=314s">Transcendental Solipsism</a>. The post below was a comment I made on youtube that sums up its issues.</p>
+            
+            <p>The claim that consciousness emerges from brain states is neither metaphysically feasible nor explanatorily sufficient. Emergence, in its strong form, posits that wholly novel properties—such as subjective awareness—arise from entirely <a href="https://consc.net/papers/emergence.pdf">non-experiential constituents</a>, yet offers no intelligible mechanism for how the qualitative arises from the quantitative. This explanatory gap is not analogous to ordinary scientific uncertainty but reflects a <a href="https://www.bernardokastrup.com/2024/10/the-true-hidden-origin-of-so-called.html">principled incommensurability between physical structure and phenomenal content</a>. Appeals to neuroscience merely correlate patterns of brain activity with reported experience but never deduce why or how such activity should yield experience in the first place. Moreover, the mere correlation between brain states and consciousness offers no metaphysical import, as both idealism—wherein brain states are the extrinsic image of mental processes—and physicalism can explain the correlation in a way that makes neither theory more evidentially supported than the other. The post hoc labeling of brain states as "consciousness-supporting" is not explanation but re-description. Nor is physicalism more parsimonious: it smuggles in the reality of consciousness as an effect while denying its causal or ontological role, thus invoking more conceptual entities—hidden laws of emergence, representational architecture—than a view that takes experience as basic. Finally, to claim that consciousness is an illusion is self-refuting, for <a href="https://www.bernardokastrup.com/2014/09/the-magical-trick-of-disappearing.html">illusion itself is a mode of consciousness</a>. There is no coherent sense in which experience can appear to exist without actually existing. Hence, the view that brain states give rise to experience not only fails to account for what needs explaining but also depends on the very phenomenon it denies, collapsing into contradiction.</p>
+            
+            <p>Basically, Physicalism is explanatorily insufficient and incoherent due to its treatment of consciousness. It fails when redefining consciousness as emergent (especially in the strongly emergent sense, which borders on the magical), when attempting to reduce it materially, and when denying it altogether (see the article on Illusionism linked above, where I say illusion itself is a mode of consciousness, and what I have in Arguments). There is no possible evidence that could validate physicalism's claim that consciousness arises from or is reducible to brain states, especially given that all such evidence appears within consciousness. Moreover, physicalism suffers from deep epistemological problems: physicalists who affirm metaphysics have no non-question-begging justification for the existence of mind-independent matter, while those who reject metaphysics, i.e. pragmatists, suspend judgment on what exists and instead emphasize minimal conceptual frameworks built for predictive validity. But such pragmatists are hardly physicalists at all since they abstain from any ontological/metaphysical claim (though they often have a high credence in the existence of the external world and other minds, which is erroneous for reasons I shall get into as it involves transcendental illusion). That leaves dualism, panpsychism, and idealism. However, Dualism suffers from the intractable interaction problem. <a href="https://www.youtube.com/watch?v=4U7r0XPWkAk&t=1s">Panpsychism suffers from the combination problem</a>. That leaves Idealism. However, most forms of Idealism make the error of asserting the existence of an Absolute, a universal Will, or a Mind-at-Large. These are metaphysical posits that exceed the boundaries of possible experience, committing what Kant described as transcendental illusion. If all knowledge is conditioned by experience, then any claim about a reality beyond consciousness lacks epistemic warrant. Transcendental Solipsism avoids this mistake. It holds that all things (self, world, thought, and differentiation) occur within consciousness, and that there is no epistemic basis for knowledge concerning the existence of anything beyond it. Transcendental Solipsism, unlike other metaphysical positions, does not dogmatically deny the existence of the external world or other minds. Instead, it suspends judgment. It affirms only what is immediately given—consciousness and its contents—while recognizing that inferences beyond this are inherently unverifiable. The question of whether other minds or a world beyond consciousness exist cannot be answered through experience, for any evidence we might invoke necessarily appears within consciousness itself. There is no standpoint outside consciousness from which such claims can be justified. As a result, realism and metaphysical solipsism remain equally conceivable, equally consistent with the structure of experience, and equally unprovable. TS does not assert that only the self exists in a dogmatic sense but rather that there is no epistemic basis to privilege the hypothesis of a world beyond experience over the hypothesis that experience is all there is. Any move to affirm realism—whether scientific, commonsense, or metaphysical—requires positing what is not, and cannot be, given. This does not render realism false, but rather highlights that it is not, and never could be, known. TS is therefore assertoric, not speculative: it asserts only what is necessarily presupposed in the act of appearing, without inflating those appearances into metaphysical claims. In doing so, it preserves the integrity of critique while dissolving the illusions that have long haunted metaphysical thought.</p>
+        </section>
+    </article>
+
+    <main id="philosophy2" class="page">
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('philosophy')">Philosophy</a>
+        </nav>
+
+        <header>
+            <h1>Compilation of Arguments</h1>
+        </header>
+
+        <section>
+            <div class="item" onclick="window.open('https://drive.google.com/file/d/1wqHBqQYhTqz-0aSKTokZd5lcCL940RVa/view?usp=sharing')">Against Physicalist Reductionism</div>
+            <div class="item" onclick="window.open('https://drive.google.com/file/d/1-5CU375W0Slbc1yYUZtaYbCjSmcmQQSy/view?usp=sharing')">Against Realism</div>
+            <div class="item" onclick="window.open('https://drive.google.com/file/d/1sBOJSoF-Nqp0F8vfMwKtTth0BacZTerw/view?usp=sharing')">An Argument Against the Concept of Mind-Independent Matter</div>
+            <div class="item" onclick="window.open('https://drive.google.com/file/d/1uB_o2MU6gnXx31rRh4-nUhVrZeKw9rgY/view?usp=sharing')">Bradley's Master Argument</div>
+            <div class="item" onclick="window.open('https://drive.google.com/file/d/1kfnIxlDTQtP8kw37PJiy3CoP7MU_OCYL/view?usp=sharing')">Brief Threefold Argument for Idealism</div>
+            <div class="item" onclick="window.open('https://drive.google.com/file/d/1VqV5idwlLOjleF1VtI8LSBTigXy6qKR4/view?usp=sharing')">Contemporary Bradley's Regress 1</div>
+            <div class="item" onclick="window.open('https://drive.google.com/file/d/1tvW_bfv7stc7hEmIlweNGbWcNnZY-sE1/view?usp=sharing')">Contemporary Bradley's Regress 2</div>
+            <div class="item" onclick="window.open('https://drive.google.com/file/d/1YbUP_0a6zg8Jm44qXqUnt1DRuJr1mf46/view?usp=sharing')">One of Bradley's Arguments for the Unreality of Space</div>
+            <div class="item" onclick="window.open('https://drive.google.com/file/d/1EBIOyApTR_f85s30EjdcNPE9sK3sppqy/view?usp=sharing')">Valid Reconstruction of Berkeley's Master Argument</div>
+        </section>
+    </main>
+
+    <!-- Thoughts Page -->
+    <main id="thoughts" class="page">
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('about')">About</a>
+        </nav>
+
+        <header>
+            <h1>All Findings and Recommendations</h1>
+        </header>
+
+        <section>
+            <div class="item" onclick="showPage('thought4')">Current Supplements</div>
+            <div class="item" onclick="showPage('thought2')">(Anecdotal) Health Recommendations</div>
+            <div class="item" onclick="showPage('thought5')">Safe Products</div>
+            <div class="item" onclick="showPage('thought3')">Red-Near Infrared Light Recommendations</div>
+            <div class="item" onclick="showPage('thought1')">Recommended Websites</div>
+        </section>
+    </main>
+
+    <!-- Individual Thought Pages -->
+    <article id="thought1" class="page">
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a>
+        </nav>
+
+        <header>
+            <h1>Recommended Websites</h1>
+        </header>
+
+        <section>
+            <div class="item" onclick="window.open('https://raypeat.com/')">https://raypeat.com/</div>
+            <div class="item" onclick="window.open('https://raypeat.rodeo/')">https://raypeat.rodeo/</div>
+            <div class="item" onclick="window.open('https://haidut.me/')">https://haidut.me/</div>
+            <div class="item" onclick="window.open('https://longestlevers.com/')">https://longestlevers.com/</div>
+            <div class="item" onclick="window.open('https://www.toxinless.com/')">https://www.toxinless.com/</div>
+            <div class="item" onclick="window.open('https://bioenergetic.forum/')">https://bioenergetic.forum/</div>
+            <div class="item" onclick="window.open('https://www.chadnet.org/')">https://www.chadnet.org/</div>
+            <div class="item" onclick="window.open('https://recipeats.org/')">https://recipeats.org/</div>
+            <div class="item" onclick="window.open('https://based.cooking/')">https://based.cooking/</div>
+        </section>
+    </article>
+
+    <article id="thought2" class="page">
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a>
+        </nav>
+
+        <header>
+            <h1>(Anecdotal) Health Recommendations</h1>
+        </header>
+
+        <section>
+            <div class="item" onclick="window.open('https://longestlevers.com/fat-loss/honey-diet.html')">Anabology's Honey Diet for Weight Loss and Upregulating Metabolic rate Through FGF21 (alternatively, fruit til noon, though less effective)</div>
+            <div class="item">Eat Carbs and Fats Separately (per Randle Cycle)</div>
+            <div class="item" onclick="window.open('https://haidut.me/?p=2799')">Eat High Carb Low Fat Moderate (Not High) Protein</div>
+            <div class="item" onclick="window.open('https://haidut.me/?p=2797')">Avoid PUFA (due to oxidative stress; no nuts, seeds, fish)</div>
+            <div class="item" onclick="window.open('https://haidut.me/?p=1477')">Avoid Supplements with Silicon Dioxide and Titanium Dioxide</div>
+            <div class="item" onclick="window.open('https://haidut.me/?p=95')">Only Use Physical Sunscreen</div>
+            <div class="item" onclick="window.open('https://haidut.me/?p=1409')">Don't Use Glucocorticoids</div>
+            <div class="item" onclick="window.open('https://haidut.me/?p=2781')">Eat a Raw Carrot Salad Daily (or eat it whole)</div>
+            <div class="item" onclick="window.open('https://haidut.me/?p=2509')">Don't Fast</div>
+            <div class="item" onclick="window.open('https://raypeat.com/articles/aging/aspirin-brain-cancer.shtml')">Substitute Tylenol for Aspirin</div>
+            <div class="item" onclick="window.open('https://raypeat.com/articles/articles/caffeine.shtml')">Drink More Coffee (instant coffee to avoid myotoxins)</div>
+            <div class="item" onclick="window.open('https://haidut.me/?p=2372')">If Depressed Seek Serotonin Antagonists on Idealabs</div>
+            <div class="item" onclick="window.open('https://haidut.me/?p=2520')">Don't Take Fish Oil</div>
+            <div class="item" onclick="window.open('https://haidut.me/?p=2482')">Don't Do Endurance Exercise</div>
+            <div class="item" onclick="window.open('https://haidut.me/?p=2446')">Avoid Plastic and Most Cleaning Products</div>
+            <div class="item" onclick="window.open('https://haidut.me/?p=899')">Don't Use Fluoride</div>
+            <div class="item" onclick="window.open('https://haidut.me/?p=2764')">Refuse X-Rays</div>
+        </section>
+    </article>
+
+    <article id="thought3" class="page">
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a>
+        </nav>
+
+        <header>
+            <h1>Red-Near Infrared Light Recommendations</h1>
+        </header>
+
+        <section>
+            <div class="item" onclick="window.open('https://redlightman.com/product/red-infrared-combo-light')">Red-Infrared Combo Light (code raypeatforum)</div>
+            <div class="item" onclick="window.open('https://emr-tek.com/en-ca/collections/red-light-therapy/products/firewave')">Expensive Combo Light (use Capital One browser extension for coupons)</div>
+            <div class="item" onclick="window.open('https://rubyluxlights.com/collections/light-therapy-bulbs-us-canada-only/products/rubylux-near-infrared-bulb-150-watts')">Near Infrared Bulb 150 Watt</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B0066L0ZRU')">Incandescent Bulb 250 Watt</div>
+            <div class="item" onclick="window.open('https://www.premier1supplies.com/p/prima-heat-lamp?srsltid=AfmBOoq-7x5tXp_o8YmwGGKGlXMKBfuCDYNHCIFCHTy3k7-ySOgiy5Lo')">Heat Lamp for Near Infrared or Incandescent Bulb (safest option)</div>
+        </section>
+    </article>
+
+    <article id="thought4" class="page">
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a>
+        </nav>
+
+        <header>
+            <h1>Current Supplements</h1>
+        </header>
+
+        <section>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B0C9WB79FF')">Magnesium Glycinate 425mg</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B08JQQ2RM4')">Caffeine 100mg</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B0BH9949JM?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1')">B-Complex</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B01E8XQ97W?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1')">P5P 50mg (because of the B-Complex)</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B00CP7Q2SA')">B2 200mg</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B003FG4Z84')">Niacinamide 500mg</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/Organika-Glycine-Powder-Proteinogenic-Synthesis/dp/B0CS6QSF4Y?sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1')">Glycine 500mg</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B09ZTK6F1N')">Calcium Carbonate 500-1000mg</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B0D6X731M1')">Myo-Inositol 500mg (until finished)</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B07ZMH8RDX')">D3 3000 IU K2 MK7 360mcg</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B0CJL3Z2FK')">L-Theanine 250mg</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B0C5S4LZVH')">Zinc Gluconate 10mg (occasionally)</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B08D7S4NR1')">Saccharomyces Boulardii (until finished)</div>
+            <div class="item" onclick="window.open('https://ca.iherb.com/pr/bodybio-sodium-butyrate-100-non-gmo-capsules/105881?gad_campaignid=818099273&gad_source=1')">Sodium Butyrate (until finished)</div>
+            <div class="item">Cynoplus (half in the morning, half in the evening)</div>
+            <div class="item" onclick="window.open('https://idealabs.ecwid.com/CortiNon-p70230384')">Cortinon+ 2 drops in morning (until finished)</div>
+            <div class="item" onclick="window.open('https://idealabs.ecwid.com/Kuinone-p70230378')">Kuinone (K2 MK4) 3-4 drops (on toothbrush in morning)</div>
+            <div class="item" onclick="window.open('https://idealabs.ecwid.com/TocoVit-p70230382')">Tocovit 2 drops before bed</div>
+            <div class="item">11 Keto-DHT (until finished)</div>
+            
+            <h2>To Be Experimented With</h2>
+            <div class="item" onclick="window.open('https://idealabs.ecwid.com/Metergoline-p72862318')">Metergoline</div>
+            <div class="item" onclick="window.open('https://idealabs.ecwid.com/Tyronene-p70230387')">Tyronene</div>
+            
+            <h2>Recommendations</h2>
+            <div class="item" onclick="window.open('https://www.bulksupplements.com/en-ca/products/vitamin-b1-thiamine-hcl-powder')">Thiamine HCL</div>
+            <div class="item" onclick="window.open('https://idealabs.ecwid.com/StressNon-p70230377')">Pregnenolone</div>
+            <div class="item">Gelatin</div>
+            <div class="item">Arm Hammer Baking Soda 500mg</div>
+            <div class="item" onclick="window.open('https://larksupply.co/vitamins/')">Alt Website for Vitamin K2 MK4</div>
+        </section>
+    </article>
+
+    <article id="thought5" class="page">
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a>
+        </nav>
+
+        <header>
+            <h1>Safe Products</h1>
+        </header>
+
+        <section>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B01726HD72')">Cast Iron</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B0011BPMUK')">Salt Low in Microplastics and Heavy Metals</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B001F21JHA')">Soap Bars</div>
+            <div class="item" onclick="window.open('https://www.amazon.ca/dp/B007Z7ODS6')">Hand Sanitizer</div>
+        </section>
+    </article>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            const targetPage = document.getElementById(pageId);
+            
+            if (!targetPage) return;
+            
+            pages.forEach(page => page.classList.remove('active'));
+            targetPage.classList.add('active');
+        }
+    </script>
+</body>
+</html>
