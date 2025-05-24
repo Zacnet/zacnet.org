@@ -83,9 +83,10 @@
                 background: white !important;
             }
         }
+        .no-js .page:not(.active) { display: block; }
     </style>
 </head>
-<body>
+<body class="no-js">
     <!-- Home Page -->
     <main id="home" class="page active">
         <nav>
@@ -376,6 +377,7 @@
     </article>
 
     <script>
+        document.documentElement.classList.remove('no-js');
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
             const targetPage = document.getElementById(pageId);
