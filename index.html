@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Essays on philosophy, health recommendations, supplement guides, and curated resources by Zac.">
+    <meta name="author" content="Zac">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+    <link rel="shortcut icon" href="favicon.ico?v=2">
+    <title>Zacnet</title>
+    <style>
+        :root {
+            --primary-color: #333;
+            --secondary-color: #666;
+            --accent-color: #0066cc;
+            --background-color: white;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --max-width: 650px;
+            --spacing-small: 12px;
+            --spacing-medium: 20px;
+            --spacing-large: 30px;
+            --spacing-xl: 60px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.5;
+            color: var(--text-color);
+            background: var(--background-color);
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 60px 30px;
+            font-size: 16px;
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Header and Navigation */
+        .site-header {
+            margin-bottom: 0;
+        }
+
+        .main-nav {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            color: var(--secondary-color);
+            text-decoration: underline;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .main-nav a:hover,
+        .main-nav a:focus {
+            color: var(--accent-color);
+        }
+
+        /* Typography */
+        .site-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0 0 20px 0;
+            color: #000;
+        }
+
+        .page-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0 0 20px 0;
+            color: #000;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 25px 0 20px 0;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .section-title:hover,
+        .section-title:focus {
+            color: var(--accent-color);
+        }
+
+        .section-title::after {
+            content: " →";
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* Links and Interactive Elements */
+        a {
+            color: var(--secondary-color);
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+
+        a:hover,
+        a:focus {
+            color: var(--accent-color);
+        }
+
+        .content-link {
+            display: block;
+            margin-bottom: 12px;
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 16px;
+            color: inherit;
+            transition: color 0.2s ease;
+            padding: 0;
+        }
+
+        .content-link:hover,
+        .content-link:focus {
+            color: var(--accent-color);
+        }
+
+        .content-link-static {
+            display: block;
+            margin-bottom: 12px;
+            text-decoration: underline;
+            font-size: 16px;
+            color: inherit;
+            padding: 0;
+        }
+
+        /* Page Management */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .page-content {
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 20px;
+        }
+
+        .content-section:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Articles and Essays */
+        .article-content p {
+            margin-bottom: 24px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+
+
+        /* Focus Management */
+        .focusable:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 60px 30px;
+                background: var(--background-color) !important;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .main-nav,
+            .breadcrumb {
+                display: none;
+            }
+            
+            body {
+                max-width: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <header class="site-header">
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('about')">About</a></li>
+                </ul>
+            </nav>
+            <h1 class="site-title">Zacnet</h1>
+        </header>
+
+        <main id="main-content" class="page-content">
+            <section class="content-section">
+                <header>
+                    <h2 class="section-title" onclick="showPage('essays')" tabindex="0" class="focusable" role="button" aria-label="View all essays">Essays</h2>
+                </header>
+                <ul role="list" style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" class="content-link" onclick="window.open('https://docs.google.com/document/d/1wuXikIGCZSV3_1NdrT5UnsjGQUPH592_rb6K14jjBHU/edit?usp=sharing')" role="link">Action's Foundations: Actional Relations and Action-Making Relations</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://docs.google.com/document/d/1r-m5KCOQeicZtVJ-MaYo5kdXnwJYqn1cAiOVFvQJgdw/edit?usp=sharing')" role="link">The Indispensability of Mental Representation in Language and Behavior</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://drive.google.com/file/d/1oPPAZOgm_8nwz-uuiubK0QrbJkeE7i-L/view?usp=sharing')" role="link">A Problem of Perception: Direct Realism & Representationalism</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://docs.google.com/document/d/1NcsV8DU9C4OZHxWS7mewJInSqAN1KR4FZUQ3pRM6qtc/edit?usp=sharing')" role="link">Plastic Recycling and the Consequences of Selective Data Presentation</a></li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <header>
+                    <h2 class="section-title" onclick="showPage('philosophy')" tabindex="0" class="focusable" role="button" aria-label="View philosophy section">Philosophy</h2>
+                </header>
+                <ul role="list" style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" class="content-link" onclick="showPage('philosophy1')" role="link">Current Philosophy</a></li>
+                    <li><a href="#" class="content-link" onclick="showPage('philosophy2')" role="link">Compilation of Arguments</a></li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <header>
+                    <h2 class="section-title" onclick="showPage('thoughts')" tabindex="0" class="focusable" role="button" aria-label="View findings and recommendations">Findings and Recommendations</h2>
+                </header>
+                <ul role="list" style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" class="content-link" onclick="showPage('thought4')" role="link">Current Supplements</a></li>
+                    <li><a href="#" class="content-link" onclick="showPage('thought2')" role="link">(Anecdotal) Health Recommendations</a></li>
+                    <li><a href="#" class="content-link" onclick="showPage('thought5')" role="link">Safe Products</a></li>
+                    <li><a href="#" class="content-link" onclick="showPage('thought3')" role="link">Red-Near Infrared Light Recommendations</a></li>
+                    <li><a href="#" class="content-link" onclick="showPage('thought1')" role="link">Useful Websites</a></li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <header class="site-header">
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('about')">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="main-content" class="page-content">
+            <header>
+                <h1 class="page-title">About</h1>
+            </header>
+            <article class="article-content">
+                <p>This is a website where I add anything worth sharing. Note that whatever recommendations I have here are anecdotal; they consist in things that have worked for me or that I have found interesting. -Zac</p>
+            </article>
+        </main>
+    </div>
+
+    <!-- Essays Page -->
+    <div id="essays" class="page">
+        <header class="site-header">
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('about')">About</a></li>
+                </ul>
+            </nav>
+            <h1 class="page-title">All Essays</h1>
+        </header>
+
+        <main id="main-content" class="page-content">
+            <section class="content-section">
+                <ul role="list" style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" class="content-link" onclick="window.open('https://drive.google.com/file/d/1E-DnjCI_gF46cX93Ufl2pbI3WJei63Q5/view?usp=sharing')" role="link">A Defense and Evaluation of Spinoza's Ontological Argument</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://drive.google.com/file/d/1oPPAZOgm_8nwz-uuiubK0QrbJkeE7i-L/view?usp=sharing')" role="link">A Problem of Perception: Direct Realism & Representationalism</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://docs.google.com/document/d/1wuXikIGCZSV3_1NdrT5UnsjGQUPH592_rb6K14jjBHU/edit?usp=sharing')" role="link">Action's Foundations: Actional Relations and Action-Making Relations</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://docs.google.com/document/d/1dMyHZQL_l5nbnB9W_UI-I3GrAV8Re3pLjQffVleB7i8/edit?usp=sharing')" role="link">Against Middle Knowledge</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://docs.google.com/document/d/1T-9xk7cxsBRHYLISrBvSVVszoC7Ra3t6wLMGPLBbLNY/edit?usp=sharing')" role="link">Kant's Critique of the Cosmological and Ontological Arguments</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://docs.google.com/document/d/1NcsV8DU9C4OZHxWS7mewJInSqAN1KR4FZUQ3pRM6qtc/edit?usp=sharing')" role="link">Plastic Recycling and the Consequences of Selective Data Presentation</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://docs.google.com/document/d/1A-8YFLfFx1FWhqjtcyLQliXoBkVRsN2N4fvlB83PC4U/edit?usp=sharing')" role="link">The Impossibility of a Restricted Internet: Why The Online Censorship Debate is Inherently False</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://docs.google.com/document/d/1r-m5KCOQeicZtVJ-MaYo5kdXnwJYqn1cAiOVFvQJgdw/edit?usp=sharing')" role="link">The Indispensability of Mental Representation in Language and Behavior</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://docs.google.com/document/d/1jEDRfcbXr18wf3DqOm5TGIhOy0rzek2CS-FcRW1FoSo/edit?usp=sharing')" role="link">The Monistic Epistemology of Parmenides: The Connection Between The Way of Truth and Being</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://docs.google.com/document/d/1eN6oRQohoM5KK7pomPOmBlTN5xpqjAZ1743K-6Q-wOw/edit?usp=sharing')" role="link">The New Gestell: Sustainability Beyond Ecology</a></li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- Philosophy Overview Page -->
+    <div id="philosophy" class="page">
+        <header class="site-header">
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('about')">About</a></li>
+                </ul>
+            </nav>
+            <h1 class="page-title">Philosophy</h1>
+        </header>
+
+        <main id="main-content" class="page-content">
+            <section class="content-section">
+                <ul role="list" style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" class="content-link" onclick="showPage('philosophy1')" role="link">Current Philosophy</a></li>
+                    <li><a href="#" class="content-link" onclick="showPage('philosophy2')" role="link">Compilation of Arguments</a></li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- Current Philosophy Article -->
+    <article id="philosophy1" class="page">
+        <header class="site-header">
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('philosophy')">Philosophy</a></li>
+                </ul>
+            </nav>
+            <h1 class="page-title">Current Philosophy</h1>
+        </header>
+
+        <main id="main-content" class="page-content article-content">
+            <p>Physicalism is untenable in any form. See the self-titled Compilation of Arguments section for a collection of arguments against it, however I will refrain from referring to that material here. Instead, I will highlight the reasoning that has led me to <a href="https://www.youtube.com/watch?v=L1HaSlhQTqk&t=314s">Transcendental Solipsism</a>. The post below was a comment I made on youtube that sums up its issues.</p>
+            
+            <p>The claim that consciousness emerges from brain states is neither metaphysically feasible nor explanatorily sufficient. Emergence, in its strong form, posits that wholly novel properties—such as subjective awareness—arise from entirely <a href="https://consc.net/papers/emergence.pdf">non-experiential constituents</a>, yet offers no intelligible mechanism for how the qualitative arises from the quantitative. This explanatory gap is not analogous to ordinary scientific uncertainty but reflects a <a href="https://www.bernardokastrup.com/2024/10/the-true-hidden-origin-of-so-called.html">principled incommensurability between physical structure and phenomenal content</a>. Appeals to neuroscience merely correlate patterns of brain activity with reported experience but never deduce why or how such activity should yield experience in the first place. Moreover, the mere correlation between brain states and consciousness offers no metaphysical import, as both idealism—wherein brain states are the extrinsic image of mental processes—and physicalism can explain the correlation in a way that makes neither theory more evidentially supported than the other. The post hoc labeling of brain states as "consciousness-supporting" is not explanation but re-description. Nor is physicalism more parsimonious: it smuggles in the reality of consciousness as an effect while denying its causal or ontological role, thus invoking more conceptual entities—hidden laws of emergence, representational architecture—than a view that takes experience as basic. Finally, to claim that consciousness is an illusion is self-refuting, for <a href="https://www.bernardokastrup.com/2014/09/the-magical-trick-of-disappearing.html">illusion itself is a mode of consciousness</a>. There is no coherent sense in which experience can appear to exist without actually existing. Hence, the view that brain states give rise to experience not only fails to account for what needs explaining but also depends on the very phenomenon it denies, collapsing into contradiction.</p>
+            
+            <p>Basically, Physicalism is explanatorily insufficient and incoherent due to its treatment of consciousness. It fails when redefining consciousness as emergent (especially in the strongly emergent sense, which borders on the magical), when attempting to reduce it materially, and when denying it altogether (see the article on Illusionism linked above, where I say illusion itself is a mode of consciousness, and what I have in the Compilation of Arguments section). There is no possible evidence that could validate Physicalism's claim that consciousness arises from or is reducible to brain states, especially given that all such evidence appears within consciousness. Moreover, Physicalism suffers from deep epistemological problems: physicalists who affirm metaphysics have no non-question-begging justification for the existence of mind-independent matter, while those who reject metaphysics, i.e. pragmatists, suspend judgment on what exists and instead emphasize minimal conceptual frameworks built for predictive validity. But such pragmatists are hardly physicalists at all since they abstain from any ontological/metaphysical claim (though they often have a high credence in the existence of the external world and other minds, which is erroneous for reasons I shall get into as it involves transcendental illusion). That leaves Dualism, Panpsychism, and Idealism. However, Dualism suffers from the intractable interaction problem. <a href="https://www.youtube.com/watch?v=4U7r0XPWkAk&t=1s">Panpsychism suffers from the combination problem</a>. That leaves Idealism. However, most forms of Idealism make the error of asserting the existence of an Absolute, a universal Will, or a Mind-at-Large. These are metaphysical posits that exceed the boundaries of possible experience, committing what Kant described as transcendental illusion. If all knowledge is conditioned by experience, then any claim about a reality beyond consciousness lacks epistemic warrant. Transcendental Solipsism avoids this mistake. It holds that all things (self, world, thought, and differentiation) occur within consciousness, and that there is no epistemic basis for knowledge concerning the existence of anything beyond it. Transcendental Solipsism, unlike other metaphysical positions, does not dogmatically deny the existence of the external world or other minds. Instead, it suspends judgment. It affirms only what is immediately given—consciousness and its contents—while recognizing that inferences beyond this are inherently unverifiable. The question of whether other minds or a world beyond consciousness exist cannot be answered through experience, for any evidence we might invoke necessarily appears within consciousness itself. There is no standpoint outside consciousness from which such claims can be justified. As a result, realism and metaphysical solipsism remain equally conceivable, equally consistent with the structure of experience, and equally unprovable. TS does not assert that only the self exists in a dogmatic sense but rather that there is no epistemic basis to privilege the hypothesis of a world beyond experience over the hypothesis that experience is all there is. Any move to affirm realism—whether scientific, commonsense, or metaphysical—requires positing what is not, and cannot be, given. This does not render realism false, but rather highlights that it is not, and never could be, known. TS is therefore assertoric, not speculative: it asserts only what is necessarily presupposed in the act of appearing, without inflating those appearances into metaphysical claims. In doing so, it preserves the integrity of critique while dissolving the illusions that have long haunted metaphysical thought.</p>
+        </main>
+    </article>
+
+    <!-- Compilation of Arguments Page -->
+    <div id="philosophy2" class="page">
+        <header class="site-header">
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('philosophy')">Philosophy</a></li>
+                </ul>
+            </nav>
+            <h1 class="page-title">Compilation of Arguments</h1>
+        </header>
+
+        <main id="main-content" class="page-content">
+            <section class="content-section">
+                <ul role="list" style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" class="content-link" onclick="window.open('https://drive.google.com/file/d/1wqHBqQYhTqz-0aSKTokZd5lcCL940RVa/view?usp=sharing')" role="link">Against Physicalist Reductionism</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://drive.google.com/file/d/1-5CU375W0Slbc1yYUZtaYbCjSmcmQQSy/view?usp=sharing')" role="link">Against Realism</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://drive.google.com/file/d/1sBOJSoF-Nqp0F8vfMwKtTth0BacZTerw/view?usp=sharing')" role="link">An Argument Against the Concept of Mind-Independent Matter</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://drive.google.com/file/d/1uB_o2MU6gnXx31rRh4-nUhVrZeKw9rgY/view?usp=sharing')" role="link">Bradley's Master Argument</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://drive.google.com/file/d/1kfnIxlDTQtP8kw37PJiy3CoP7MU_OCYL/view?usp=sharing')" role="link">Brief Threefold Argument for Idealism</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://drive.google.com/file/d/1VqV5idwlLOjleF1VtI8LSBTigXy6qKR4/view?usp=sharing')" role="link">Contemporary Bradley's Regress 1</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://drive.google.com/file/d/1tvW_bfv7stc7hEmIlweNGbWcNnZY-sE1/view?usp=sharing')" role="link">Contemporary Bradley's Regress 2</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://drive.google.com/file/d/1YbUP_0a6zg8Jm44qXqUnt1DRuJr1mf46/view?usp=sharing')" role="link">One of Bradley's Arguments for the Unreality of Space</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://drive.google.com/file/d/1EBIOyApTR_f85s30EjdcNPE9sK3sppqy/view?usp=sharing')" role="link">Valid Reconstruction of Berkeley's Master Argument</a></li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- Findings and Recommendations Overview -->
+    <div id="thoughts" class="page">
+        <header class="site-header">
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('about')">About</a></li>
+                </ul>
+            </nav>
+            <h1 class="page-title">Findings and Recommendations</h1>
+        </header>
+
+        <main id="main-content" class="page-content">
+            <section class="content-section">
+                <ul role="list" style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" class="content-link" onclick="showPage('thought4')" role="link">Current Supplements</a></li>
+                    <li><a href="#" class="content-link" onclick="showPage('thought2')" role="link">(Anecdotal) Health Recommendations</a></li>
+                    <li><a href="#" class="content-link" onclick="showPage('thought5')" role="link">Safe Products</a></li>
+                    <li><a href="#" class="content-link" onclick="showPage('thought3')" role="link">Red-Near Infrared Light Recommendations</a></li>
+                    <li><a href="#" class="content-link" onclick="showPage('thought1')" role="link">Useful Websites</a></li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- Individual Recommendation Pages -->
+    <article id="thought1" class="page">
+        <header class="site-header">
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a></li>
+                </ul>
+            </nav>
+            <h1 class="page-title">Useful Websites</h1>
+        </header>
+
+        <main id="main-content" class="page-content">
+            <section class="content-section">
+                <ul role="list" style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" class="content-link" onclick="window.open('https://raypeat.com/')" role="link">https://raypeat.com/</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://raypeat.rodeo/')" role="link">https://raypeat.rodeo/</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://haidut.me/')" role="link">https://haidut.me/</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://longestlevers.com/')" role="link">https://longestlevers.com/</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.toxinless.com/')" role="link">https://www.toxinless.com/</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://bioenergetic.forum/')" role="link">https://bioenergetic.forum/</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.chadnet.org/')" role="link">https://www.chadnet.org/</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://recipeats.org/')" role="link">https://recipeats.org/</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://based.cooking/')" role="link">https://based.cooking/</a></li>
+                </ul>
+            </section>
+        </main>
+    </article>
+
+    <article id="thought2" class="page">
+        <header class="site-header">
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a></li>
+                </ul>
+            </nav>
+            <h1 class="page-title">(Anecdotal) Health Recommendations</h1>
+        </header>
+
+        <main id="main-content" class="page-content">
+            <section class="content-section">
+                <ul role="list" style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" class="content-link" onclick="window.open('https://longestlevers.com/fat-loss/honey-diet.html')" role="link">Anabology's Honey Diet for Weight Loss and Upregulating Metabolic Rate Through FGF21 (alternatively, fruit til noon, though less effective)</a></li>
+                    <li><span class="content-link-static">Eat Carbs and Fats Separately (per Randle Cycle)</span></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://haidut.me/?p=2799')" role="link">Eat High Carb Low Fat Moderate (Not High) Protein</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://haidut.me/?p=2797')" role="link">Avoid PUFA (due to oxidative stress; no nuts, seeds, fish)</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://haidut.me/?p=1477')" role="link">Avoid Supplements with Silicon Dioxide and Titanium Dioxide</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://haidut.me/?p=95')" role="link">Only Use Physical Sunscreen</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://haidut.me/?p=1409')" role="link">Don't Use Glucocorticoids</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://haidut.me/?p=2781')" role="link">Eat a Raw Carrot Salad Daily (or eat it whole)</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://haidut.me/?p=2509')" role="link">Don't Fast</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://raypeat.com/articles/aging/aspirin-brain-cancer.shtml')" role="link">Substitute Tylenol for Aspirin</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://raypeat.com/articles/articles/caffeine.shtml')" role="link">Drink More Coffee (instant coffee to avoid myotoxins)</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://haidut.me/?p=2372')" role="link">If Depressed Seek Serotonin Antagonists on Idealabs</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://haidut.me/?p=2520')" role="link">Don't Take Fish Oil</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://haidut.me/?p=2482')" role="link">Don't Do Endurance Exercise</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://haidut.me/?p=2446')" role="link">Avoid Plastic and Most Cleaning Products</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://haidut.me/?p=899')" role="link">Don't Use Fluoride</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://haidut.me/?p=2764')" role="link">Refuse X-Rays</a></li>
+                </ul>
+            </section>
+        </main>
+    </article>
+
+    <article id="thought3" class="page">
+        <header class="site-header">
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a></li>
+                </ul>
+            </nav>
+            <h1 class="page-title">Red-Near Infrared Light Recommendations</h1>
+        </header>
+
+        <main id="main-content" class="page-content">
+            <section class="content-section">
+                <ul role="list" style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" class="content-link" onclick="window.open('https://redlightman.com/product/red-infrared-combo-light')" role="link">Red-Infrared Combo Light (code raypeatforum)</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://emr-tek.com/en-ca/collections/red-light-therapy/products/firewave')" role="link">Expensive Combo Light (use Capital One browser extension for coupons)</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://rubyluxlights.com/collections/light-therapy-bulbs-us-canada-only/products/rubylux-near-infrared-bulb-150-watts')" role="link">Near Infrared Bulb 150 Watt</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B0066L0ZRU')" role="link">Incandescent Bulb 250 Watt</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.premier1supplies.com/p/prima-heat-lamp?srsltid=AfmBOoq-7x5tXp_o8YmwGGKGlXMKBfuCDYNHCIFCHTy3k7-ySOgiy5Lo')" role="link">Heat Lamp for Near Infrared or Incandescent Bulb (safest option)</a></li>
+                </ul>
+            </section>
+        </main>
+    </article>
+
+    <article id="thought4" class="page">
+        <header class="site-header">
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a></li>
+                </ul>
+            </nav>
+            <h1 class="page-title">Current Supplements</h1>
+        </header>
+
+        <main id="main-content" class="page-content">
+            <section class="content-section">
+                <ul role="list" style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B0C9WB79FF')" role="link">Magnesium Glycinate 425mg</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B08JQQ2RM4')" role="link">Caffeine 100mg</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B0BH9949JM?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1')" role="link">B-Complex</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B01E8XQ97W?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1')" role="link">P5P 50mg (because of the B-Complex)</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B00CP7Q2SA')" role="link">B2 200mg</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B003FG4Z84')" role="link">Niacinamide 500mg</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/Organika-Glycine-Powder-Proteinogenic-Synthesis/dp/B0CS6QSF4Y?sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1')" role="link">Glycine 500mg</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B09ZTK6F1N')" role="link">Calcium Carbonate 500-1000mg</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B0D6X731M1')" role="link">Myo-Inositol 500mg (until finished)</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B07ZMH8RDX')" role="link">D3 3000 IU K2 MK7 360mcg</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B0CJL3Z2FK')" role="link">L-Theanine 250mg</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B0C5S4LZVH')" role="link">Zinc Gluconate 10mg (occasionally)</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B08D7S4NR1')" role="link">Saccharomyces Boulardii (until finished)</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://ca.iherb.com/pr/bodybio-sodium-butyrate-100-non-gmo-capsules/105881?gad_campaignid=818099273&gad_source=1')" role="link">Sodium Butyrate (until finished)</a></li>
+                    <li><span class="content-link-static">Cynoplus (half in the morning, half in the evening)</span></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://idealabs.ecwid.com/CortiNon-p70230384')" role="link">Cortinon+ 2 drops in morning (until finished)</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://idealabs.ecwid.com/Kuinone-p70230378')" role="link">Kuinone (K2 MK4) 3-4 drops (on toothbrush in morning)</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://idealabs.ecwid.com/TocoVit-p70230382')" role="link">Tocovit 2 drops before bed</a></li>
+                    <li><span class="content-link-static">11 Keto-DHT (until finished)</span></li>
+                </ul>
+            </section>
+            
+            <section class="content-section">
+                <header>
+                    <h2 class="section-title">To Be Experimented With</h2>
+                </header>
+                <ul role="list" style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" class="content-link" onclick="window.open('https://idealabs.ecwid.com/Metergoline-p72862318')" role="link">Metergoline</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://idealabs.ecwid.com/Tyronene-p70230387')" role="link">Tyronene</a></li>
+                </ul>
+            </section>
+            
+            <section class="content-section">
+                <header>
+                    <h2 class="section-title">Recommendations</h2>
+                </header>
+                <ul role="list" style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.bulksupplements.com/en-ca/products/vitamin-b1-thiamine-hcl-powder')" role="link">Thiamine HCL</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://idealabs.ecwid.com/StressNon-p70230377')" role="link">Pregnenolone</a></li>
+                    <li><span class="content-link-static">Gelatin</span></li>
+                    <li><span class="content-link-static">Arm Hammer Baking Soda 500mg</span></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://larksupply.co/vitamins/')" role="link">Alt Website for Vitamin K2 MK4</a></li>
+                </ul>
+            </section>
+        </main>
+    </article>
+
+    <article id="thought5" class="page">
+        <header class="site-header">
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a></li>
+                </ul>
+            </nav>
+            <h1 class="page-title">Safe Products</h1>
+        </header>
+
+        <main id="main-content" class="page-content">
+            <section class="content-section">
+                <ul role="list" style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B01726HD72')" role="link">Cast Iron</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B0011BPMUK')" role="link">Salt Low in Microplastics and Heavy Metals</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B001F21JHA')" role="link">Soap Bars</a></li>
+                    <li><a href="#" class="content-link" onclick="window.open('https://www.amazon.ca/dp/B007Z7ODS6')" role="link">Hand Sanitizer</a></li>
+                </ul>
+            </section>
+        </main>
+    </article>
+
+    <script>
+        // Enhanced page management with better accessibility
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            const targetPage = document.getElementById(pageId);
+            
+            if (!targetPage) return;
+            
+            // Hide all pages
+            pages.forEach(page => {
+                page.classList.remove('active');
+                page.setAttribute('aria-hidden', 'true');
+            });
+            
+            // Show target page
+            targetPage.classList.add('active');
+            targetPage.setAttribute('aria-hidden', 'false');
+            
+            // Focus management for accessibility
+            const mainContent = targetPage.querySelector('#main-content, main');
+            if (mainContent) {
+                mainContent.focus();
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const target = e.target;
+                if (target.classList.contains('section-title') && target.hasAttribute('onclick')) {
+                    e.preventDefault();
+                    target.click();
+                }
+            }
+        });
+        
+        // Initialize page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial aria-hidden states
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                if (page.classList.contains('active')) {
+                    page.setAttribute('aria-hidden', 'false');
+                } else {
+                    page.setAttribute('aria-hidden', 'true');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
