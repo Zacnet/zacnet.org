@@ -385,38 +385,12 @@
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
             const targetPage = document.getElementById(pageId);
-        
+            
             if (!targetPage) return;
-        
+            
             pages.forEach(page => page.classList.remove('active'));
             targetPage.classList.add('active');
-        
-            // Simple URL update - only if it works
-            if (window.history && window.history.pushState) {
-                try {
-                    const newURL = pageId === 'home' ? window.location.pathname : '#' + pageId;
-                    window.history.pushState(null, '', newURL);
-                } catch (e) {
-                    // Do nothing if it fails
-                }
-            }
         }
-
-        // Handle back/forward buttons
-        window.addEventListener('popstate', function() {
-            const pageId = window.location.hash.slice(1) || 'home';
-            if (document.getElementById(pageId)) {
-                showPage(pageId);
-            }
-        });
-
-        // Handle initial page load
-        window.addEventListener('DOMContentLoaded', function() {
-            const pageId = window.location.hash.slice(1) || 'home';
-            if (pageId !== 'home' && document.getElementById(pageId)) {
-                showPage(pageId);
-            }
-        });
-</script>
+    </script>
 </body>
 </html>
