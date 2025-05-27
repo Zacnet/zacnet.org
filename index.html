@@ -605,58 +605,121 @@
             </section>
         </main>
     </article>
+<script>
+// Enhanced page management with hash-based routing (GitHub Pages compatible)
+function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    const targetPage = document.getElementById(pageId);
+    
+    if (!targetPage) return;
+    
+    // Hide all pages
+    pages.forEach(page => {
+        page.classList.remove('active');
+        page.setAttribute('aria-hidden', 'true');
+    });
+    
+    // Show target page
+    targetPage.classList.add('active');
+    targetPage.setAttribute('aria-hidden', 'false');
+    
+    // Update URL hash (GitHub Pages compatible)
+    const newHash = pageId === 'home' ? '' : `#${pageId}`;
+    if (window.location.hash !== newHash) {
+        window.location.hash = newHash;
+    }
+    
+    // Focus management for accessibility
+    const mainContent = targetPage.querySelector('#main-content, main');
+    if (mainContent) {
+        mainContent.focus();
+    }
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
 
-    <script>
-        // Enhanced page management with better accessibility
-        function showPage(pageId) {
-            const pages = document.querySelectorAll('.page');
-            const targetPage = document.getElementById(pageId);
-            
-            if (!targetPage) return;
-            
-            // Hide all pages
-            pages.forEach(page => {
-                page.classList.remove('active');
-                page.setAttribute('aria-hidden', 'true');
-            });
-            
-            // Show target page
-            targetPage.classList.add('active');
-            targetPage.setAttribute('aria-hidden', 'false');
-            
-            // Focus management for accessibility
-            const mainContent = targetPage.querySelector('#main-content, main');
-            if (mainContent) {
-                mainContent.focus();
-            }
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
+// Handle hash changes (browser back/forward and direct links)
+window.addEventListener('hashchange', function() {
+    const hash = window.location.hash;
+    let pageId = 'home'; // default
+    
+    if (hash && hash.length > 1) {
+        // Remove # and use as pageId
+        const hashPageId = hash.substring(1).toLowerCase();
+        // Check if this page exists
+        if (document.getElementById(hashPageId)) {
+            pageId = hashPageId;
+        }
+    }
+    
+    // Show the appropriate page
+    const pages = document.querySelectorAll('.page');
+    const targetPage = document.getElementById(pageId);
+    
+    if (targetPage) {
+        pages.forEach(page => {
+            page.classList.remove('active');
+            page.setAttribute('aria-hidden', 'true');
+        });
+        
+        targetPage.classList.add('active');
+        targetPage.setAttribute('aria-hidden', 'false');
+        
+        // Focus management
+        const mainContent = targetPage.querySelector('#main-content, main');
+        if (mainContent) {
+            mainContent.focus();
         }
         
-        // Keyboard navigation support
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                const target = e.target;
-                if (target.classList.contains('section-title') && target.hasAttribute('onclick')) {
-                    e.preventDefault();
-                    target.click();
-                }
-            }
+        window.scrollTo(0, 0);
+    }
+});
+
+// Initialize page based on current hash
+function initializePage() {
+    const hash = window.location.hash;
+    let pageId = 'home';
+    
+    if (hash && hash.length > 1) {
+        // Remove # and use as pageId
+        const hashPageId = hash.substring(1).toLowerCase();
+        // Check if this page exists
+        if (document.getElementById(hashPageId)) {
+            pageId = hashPageId;
+        }
+    }
+    
+    // Show the correct page
+    const pages = document.querySelectorAll('.page');
+    const targetPage = document.getElementById(pageId);
+    
+    if (targetPage) {
+        pages.forEach(page => {
+            page.classList.remove('active');
+            page.setAttribute('aria-hidden', 'true');
         });
         
-        // Initialize page on load
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set initial aria-hidden states
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => {
-                if (page.classList.contains('active')) {
-                    page.setAttribute('aria-hidden', 'false');
-                } else {
-                    page.setAttribute('aria-hidden', 'true');
-                }
-            });
-        });
-    </script>
+        targetPage.classList.add('active');
+        targetPage.setAttribute('aria-hidden', 'false');
+    }
+}
+
+// Keyboard navigation support
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        const target = e.target;
+        if (target.classList.contains('section-title') && target.hasAttribute('onclick')) {
+            e.preventDefault();
+            target.click();
+        }
+    }
+});
+
+// Initialize page on load
+document.addEventListener('DOMContentLoaded', function() {
+    initializePage();
+});
+</script>
 </body>
 </html>
