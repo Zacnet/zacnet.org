@@ -616,12 +616,10 @@
             // Hide all pages
             pages.forEach(page => {
                 page.classList.remove('active');
-                page.setAttribute('aria-hidden', 'true');
             });
             
             // Show target page
             targetPage.classList.add('active');
-            targetPage.setAttribute('aria-hidden', 'false');
             
             // Focus management for accessibility
             const mainContent = targetPage.querySelector('#main-content, main');
@@ -646,15 +644,6 @@
         
         // Initialize page on load
         document.addEventListener('DOMContentLoaded', function() {
-            // Set initial aria-hidden states
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => {
-                if (page.classList.contains('active')) {
-                    page.setAttribute('aria-hidden', 'false');
-                } else {
-                    page.setAttribute('aria-hidden', 'true');
-                }
-            });
         });
 </script>
 </body>
