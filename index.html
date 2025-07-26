@@ -695,10 +695,6 @@
             
             // Scroll to top
             window.scrollTo(0, 0);
-
-            // ✅ Update the URL hash
-            window.location.hash = pageId;
-        }
         
         // Keyboard navigation support
         document.addEventListener('keydown', function(e) {
@@ -717,21 +713,6 @@
         const ts = document.getElementById('timestamp');
         if (ts) {
             ts.textContent = 'Last updated: ' + new Date(document.lastModified).toLocaleDateString();
-        }
-
-        // Show section if URL has a hash on load
-        const hash = window.location.hash.replace('#', '');
-        if (hash && document.getElementById(hash)) {
-            showPage(hash);
-
-        }
-    });
-
-        // Handle hash changes after page has loaded
-        window.addEventListener('hashchange', function() {
-        const hash = window.location.hash.replace('#', '');
-        if (hash && document.getElementById(hash)) {
-            showPage(hash);
         }
     });
 </script>
