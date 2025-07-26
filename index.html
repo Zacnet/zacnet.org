@@ -713,7 +713,7 @@
         // Insert last updated timestamp in About page
         const ts = document.getElementById('timestamp');
         if (ts) {
-            ts.textContent = 'Last updated: ' + new Date(document.lastModified).toLocaleDateString();
+            ts.textContent = 'Last updated: ' + new Date(document.lastModified).toLocaleDateString('en-CA');
         }
     });
 </script>
