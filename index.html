@@ -715,6 +715,21 @@
         if (ts) {
             ts.textContent = 'Last updated: ' + new Date(document.lastModified).toLocaleDateString();
         }
+
+        // Show section if URL has a hash on load
+        const hash = window.location.hash.replace('#', '');
+        if (hash && document.getElementById(hash)) {
+            showPage(hash);
+
+        }
+    });
+
+        // Handle hash changes after page has loaded
+        window.addEventListener('hashchange', function() {
+        const hash = window.location.hash.replace('#', '');
+        if (hash && document.getElementById(hash)) {
+            showPage(hash);
+        }
     });
 </script>
 </body>
