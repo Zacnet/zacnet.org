@@ -208,8 +208,9 @@
 
 
 
-        /* Focus Management */
-        .focusable:focus {
+        /* Focus Management — show outline only for keyboard nav */
+        .focusable:focus { outline: none; }
+        .focusable:focus-visible {
             outline: 2px solid var(--accent-color);
             outline-offset: 2px;
         }
@@ -846,6 +847,18 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
         updateIcons();
     });
+// Prevent the hash-jump on internal router links
+document.addEventListener(
+  'click',
+  function (e) {
+    const link = e.target.closest && e.target.closest('a[href="#"]');
+    if (link && link.hasAttribute('onclick')) {
+      e.preventDefault();
+    }
+  },
+  { capture: true }
+);
 });
-</script></body>
+</script>
+</body>
 </html>
