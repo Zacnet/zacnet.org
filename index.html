@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Essays on philosophy, health recommendations, supplement guides, and curated resources by Zac." name="description"/>
+<meta content="Zac" name="author"/>
+<link href="favicon.ico?v=2" rel="icon" type="image/x-icon"/>
+<link href="favicon.ico?v=2" rel="shortcut icon"/>
+<title>Zacnet</title>
+<style>
+        :root {
+            --primary-color: #333;
+            --secondary-color: #666;
+            --accent-color: #0066cc;
+            --background-color: white;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --max-width: 650px;
+            --spacing-small: 12px;
+            --spacing-medium: 20px;
+            --spacing-large: 30px;
+            --spacing-xl: 60px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.5;
+            color: var(--text-color);
+            background: var(--background-color);
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 60px 30px;
+            font-size: 16px;
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Header and Navigation */
+        .site-header {
+            margin-bottom: 0;
+        }
+
+        .main-nav {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            color: var(--secondary-color);
+            text-decoration: underline;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .main-nav a:hover,
+        .main-nav a:focus {
+            color: var(--accent-color);
+        }
+
+        /* Typography */
+        .site-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0 0 20px 0;
+            color: #000;
+        }
+
+        .page-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0 0 20px 0;
+            color: #000;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 25px 0 20px 0;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .section-title:hover,
+        .section-title:focus {
+            color: var(--accent-color);
+        }
+
+       .subsection-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 25px 0 15px 0;
+            color: var(--text-color);
+
+        }
+        .subsection-title {
+           font-size: 16px;
+            font-weight: 500;
+            margin: 25px 0 15px 0;
+            color: var(--text-color);
+        }
+        
+        /* Links and Interactive Elements */
+        a {
+            color: var(--secondary-color);
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+
+        a:hover,
+        a:focus {
+            color: var(--accent-color);
+        }
+
+        .content-link {
+            display: block;
+            margin-bottom: 12px;
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 16px;
+            color: inherit;
+            transition: color 0.2s ease;
+            padding: 0;
+        }
+
+        .content-link:hover,
+        .content-link:focus {
+            color: var(--accent-color);
+        }
+
+        .content-link-static {
+            display: block;
+            margin-bottom: 12px;
+            text-decoration: underline;
+            font-size: 16px;
+            color: inherit;
+            padding: 0;
+        }
+
+        /* Page Management */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .page-content {
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 20px;
+        }
+
+        .content-section:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Articles and Essays */
+        .article-content p {
+            margin-bottom: 24px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+
+
+        /* Focus Management */
+        .focusable:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 60px 30px;
+                background: var(--background-color) !important;
+            }
+
+            .main-nav ul {
+                flex-direction: row;
+                gap: 30px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .main-nav,
+            .breadcrumb {
+                display: none;
+            }
+            
+            body {
+                max-width: none;
+                padding: 0;
+            }
+        }
+    </style><style>
+/* Make the monochrome toggle easier to see */
+#darkModeToggle { border-color: #888; }
+body.dark-mode #darkModeToggle { border-color: #666; }
+#darkModeToggle:hover { background: rgba(0,0,0,0.04); }
+body.dark-mode #darkModeToggle:hover { background: rgba(255,255,255,0.08); }
+</style><style>
+/* Monochrome sun/moon toggle styles (appearance only) */
+#darkModeToggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 9999px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    color: #000; /* light mode icon color */
+    transition: border-color 0.2s ease, transform 0.1s ease;
+}
+#darkModeToggle:focus { outline: 2px solid var(--accent-color); outline-offset: 2px; }
+#darkModeToggle:active { transform: scale(0.98); }
+
+/* Dark mode icon color */
+body.dark-mode #darkModeToggle { color: #fff; border-color: var(--border-color); }
+
+/* Show/hide icons depending on mode */
+#darkModeToggle .icon-sun { display: inline-block; }
+#darkModeToggle .icon-moon { display: none; }
+body.dark-mode #darkModeToggle .icon-sun { display: none; }
+body.dark-mode #darkModeToggle .icon-moon { display: inline-block; }
+
+/* SVG sizing */
+#darkModeToggle svg { width: 18px; height: 18px; display: block; }
+</style><style>
+/* Preserve original hover color in light mode */
+body:not(.dark-mode) { --accent-color: #0066cc; }
+body:not(.dark-mode) a:hover,
+body:not(.dark-mode) .content-link:hover,
+body:not(.dark-mode) .main-nav a:hover,
+body:not(.dark-mode) .section-title:hover,
+body:not(.dark-mode) a:focus,
+body:not(.dark-mode) .content-link:focus,
+body:not(.dark-mode) .main-nav a:focus,
+body:not(.dark-mode) .section-title:focus {
+    color: #0066cc !important;
+}
+</style><style>
+/* Ensure page titles (About, All Essays, etc.) switch color in dark mode */
+body.dark-mode .page-title { color: var(--text-color); }
+</style><style>
+/* Ensure 'Zacnet' title switches color in dark mode */
+body.dark-mode .site-title { color: var(--text-color); }
+</style><style>
+/* Dark mode overrides - colors only */
+body.dark-mode {
+    --primary-color: #ccc;
+    --secondary-color: #aaa;
+    --accent-color: #66aaff;
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --border-color: #333;
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<!-- Home Page -->
+<div class="page active" id="home">
+<header class="site-header">
+<nav aria-label="Main navigation" class="main-nav" role="navigation">
+<ul>
+<li><a href="#" onclick="showPage('home')">Home</a></li>
+<li><a href="#" onclick="showPage('about')">About</a></li>
+</ul>
+</nav>
+<h1 class="site-title">Zacnet</h1>
+</header>
+<main class="page-content" id="main-content">
+<section class="content-section">
+<header>
+<h2 aria-label="View all essays" class="section-title focusable" onclick="showPage('essays')" role="button" tabindex="0">Essays</h2>
+</header>
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><a class="content-link" href="https://docs.google.com/document/d/1wuXikIGCZSV3_1NdrT5UnsjGQUPH592_rb6K14jjBHU/edit?usp=sharing" role="link" target="_blank">Action's Foundations: Actional Relations and Action-Making Relations</a></li>
+<li><a class="content-link" href="https://docs.google.com/document/d/1r-m5KCOQeicZtVJ-MaYo5kdXnwJYqn1cAiOVFvQJgdw/edit?usp=sharing" role="link" target="_blank">The Indispensability of Mental Representation in Language and Behavior</a></li>
+<li><a class="content-link" href="https://drive.google.com/file/d/1oPPAZOgm_8nwz-uuiubK0QrbJkeE7i-L/view?usp=sharing" role="link" target="_blank">A Problem of Perception: Direct Realism &amp; Representationalism</a></li>
+<li><a class="content-link" href="https://docs.google.com/document/d/1NcsV8DU9C4OZHxWS7mewJInSqAN1KR4FZUQ3pRM6qtc/edit?usp=sharing" role="link" target="_blank">Plastic Recycling and the Consequences of Selective Data Presentation</a></li>
+</ul>
+</section>
+<section class="content-section">
+<header>
+<h2 aria-label="View philosophy section" class="section-title focusable" onclick="showPage('philosophy')" role="button" tabindex="0">Philosophy</h2>
+</header>
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><a class="content-link" href="#" onclick="showPage('philosophy1')" role="link">Current Philosophy</a></li>
+<li><a class="content-link" href="#" onclick="showPage('philosophy2')" role="link">Compilation of Arguments</a></li>
+</ul>
+</section>
+<section class="content-section">
+<header>
+<h2 aria-label="View findings and recommendations" class="section-title focusable" onclick="showPage('thoughts')" role="button" tabindex="0">Findings and Recommendations</h2>
+</header>
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><a class="content-link" href="#" onclick="showPage('thought4')" role="link">Current Supplements</a></li>
+<li><a class="content-link" href="#" onclick="showPage('thought2')" role="link">(Anecdotal) Health Recommendations</a></li>
+<li><a class="content-link" href="#" onclick="showPage('thought5')" role="link">Safe Products</a></li>
+<li><a class="content-link" href="#" onclick="showPage('thought3')" role="link">Red-Near Infrared Light Recommendations</a></li>
+<li><a class="content-link" href="#" onclick="showPage('thought6')" role="link">Supplement Experiences</a></li>
+<li><a class="content-link" href="#" onclick="showPage('thought1')" role="link">Useful Websites</a></li>
+</ul>
+</section>
+</main>
+</div>
+<!-- About Page -->
+<div class="page" id="about">
+<header class="site-header">
+<nav aria-label="Main navigation" class="main-nav" role="navigation">
+<ul>
+<li><a href="#" onclick="showPage('home')">Home</a></li>
+<li><a href="#" onclick="showPage('about')">About</a></li>
+</ul>
+</nav>
+</header>
+<main class="page-content" id="main-content">
+<header>
+<h1 class="page-title">About</h1>
+</header>
+<article class="article-content">
+<p>This is a website where I add anything worth sharing. Note that whatever recommendations I have here are anecdotal; they consist in things that have worked for me or that I have found interesting. -Zac</p>
+<p id="timestamp" style="font-size: 12px; color: var(--secondary-color); margin-top: 20px;"></p>
+</article>
+</main>
+</div>
+<!-- Essays Page -->
+<div class="page" id="essays">
+<header class="site-header">
+<nav aria-label="Main navigation" class="main-nav" role="navigation">
+<ul>
+<li><a href="#" onclick="showPage('home')">Home</a></li>
+<li><a href="#" onclick="showPage('about')">About</a></li>
+</ul>
+</nav>
+<h1 class="page-title">All Essays</h1>
+</header>
+<main class="page-content" id="main-content">
+<section class="content-section">
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><a class="content-link" href="https://drive.google.com/file/d/1E-DnjCI_gF46cX93Ufl2pbI3WJei63Q5/view?usp=sharing" role="link" target="_blank">A Defense and Evaluation of Spinoza's Ontological Argument</a></li>
+<li><a class="content-link" href="https://drive.google.com/file/d/1oPPAZOgm_8nwz-uuiubK0QrbJkeE7i-L/view?usp=sharing" role="link" target="_blank">A Problem of Perception: Direct Realism &amp; Representationalism</a></li>
+<li><a class="content-link" href="https://docs.google.com/document/d/1wuXikIGCZSV3_1NdrT5UnsjGQUPH592_rb6K14jjBHU/edit?usp=sharing" role="link" target="_blank">Action's Foundations: Actional Relations and Action-Making Relations</a></li>
+<li><a class="content-link" href="https://docs.google.com/document/d/1dMyHZQL_l5nbnB9W_UI-I3GrAV8Re3pLjQffVleB7i8/edit?usp=sharing" role="link" target="_blank">Against Middle Knowledge</a></li>
+<li><a class="content-link" href="https://docs.google.com/document/d/1T-9xk7cxsBRHYLISrBvSVVszoC7Ra3t6wLMGPLBbLNY/edit?usp=sharing" role="link" target="_blank">Kant's Critique of the Cosmological and Ontological Arguments</a></li>
+<li><a class="content-link" href="https://docs.google.com/document/d/1NcsV8DU9C4OZHxWS7mewJInSqAN1KR4FZUQ3pRM6qtc/edit?usp=sharing" role="link" target="_blank">Plastic Recycling and the Consequences of Selective Data Presentation</a></li>
+<li><a class="content-link" href="https://docs.google.com/document/d/1A-8YFLfFx1FWhqjtcyLQliXoBkVRsN2N4fvlB83PC4U/edit?usp=sharing" role="link" target="_blank">The Impossibility of a Restricted Internet: Why The Online Censorship Debate is Inherently False</a></li>
+<li><a class="content-link" href="https://docs.google.com/document/d/1r-m5KCOQeicZtVJ-MaYo5kdXnwJYqn1cAiOVFvQJgdw/edit?usp=sharing" role="link" target="_blank">The Indispensability of Mental Representation in Language and Behavior</a></li>
+<li><a class="content-link" href="https://docs.google.com/document/d/1jEDRfcbXr18wf3DqOm5TGIhOy0rzek2CS-FcRW1FoSo/edit?usp=sharing" role="link" target="_blank">The Monistic Epistemology of Parmenides: The Connection Between The Way of Truth and Being</a></li>
+<li><a class="content-link" href="https://docs.google.com/document/d/1eN6oRQohoM5KK7pomPOmBlTN5xpqjAZ1743K-6Q-wOw/edit?usp=sharing" role="link" target="_blank">The New Gestell: Sustainability Beyond Ecology</a></li>
+</ul>
+</section>
+</main>
+</div>
+<!-- Philosophy Overview Page -->
+<div class="page" id="philosophy">
+<header class="site-header">
+<nav aria-label="Main navigation" class="main-nav" role="navigation">
+<ul>
+<li><a href="#" onclick="showPage('home')">Home</a></li>
+<li><a href="#" onclick="showPage('about')">About</a></li>
+</ul>
+</nav>
+<h1 class="page-title">Philosophy</h1>
+</header>
+<main class="page-content" id="main-content">
+<section class="content-section">
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><a class="content-link" href="#" onclick="showPage('philosophy1')" role="link">Current Philosophy</a></li>
+<li><a class="content-link" href="#" onclick="showPage('philosophy2')" role="link">Compilation of Arguments</a></li>
+</ul>
+</section>
+</main>
+</div>
+<!-- Current Philosophy Article -->
+<article class="page" id="philosophy1">
+<header class="site-header">
+<nav aria-label="Main navigation" class="main-nav" role="navigation">
+<ul>
+<li><a href="#" onclick="showPage('home')">Home</a></li>
+<li><a href="#" onclick="showPage('philosophy')">Philosophy</a></li>
+</ul>
+</nav>
+<h1 class="page-title">Current Philosophy</h1>
+</header>
+<main class="page-content article-content" id="main-content">
+<p>Physicalism is untenable in any form. See the self-titled Compilation of Arguments section for a collection of arguments against it, however I will refrain from referring to that material here. Instead, I will highlight the reasoning that has led me to <a href="https://www.youtube.com/watch?v=L1HaSlhQTqk&amp;t" target="_blank">Transcendental Solipsism</a>. The post below was a comment I made on youtube that sums up its issues.</p>
+<p>The claim that consciousness emerges from brain states is neither metaphysically feasible nor explanatorily sufficient. Emergence, in its strong form, posits that wholly novel properties—such as subjective awareness—arise from entirely <a href="https://consc.net/papers/emergence.pdf" target="_blank">non-experiential constituents</a>, yet offers no intelligible mechanism for how the qualitative arises from the quantitative. This explanatory gap is not analogous to ordinary scientific uncertainty but reflects a <a href="https://www.bernardokastrup.com/2024/10/the-true-hidden-origin-of-so-called.html" target="_blank">principled incommensurability between physical structure and phenomenal content</a>. Appeals to neuroscience merely correlate patterns of brain activity with reported experience but never deduce why or how such activity should yield experience in the first place. Moreover, the mere correlation between brain states and consciousness offers no metaphysical import, as both idealism—wherein brain states are the extrinsic image of mental processes—and physicalism can explain the correlation in a way that makes neither theory more evidentially supported than the other. The post hoc labeling of brain states as "consciousness-supporting" is not explanation but re-description. Nor is physicalism more parsimonious: it smuggles in the reality of consciousness as an effect while denying its causal or ontological role, thus invoking more conceptual entities—hidden laws of emergence, representational architecture—than a view that takes experience as basic. Finally, to claim that consciousness is an illusion is self-refuting, for <a href="https://www.bernardokastrup.com/2014/09/the-magical-trick-of-disappearing.html" target="_blank">illusion itself is a mode of consciousness</a>. There is no coherent sense in which experience can appear to exist without actually existing. Hence, the view that brain states give rise to experience not only fails to account for what needs explaining but also depends on the very phenomenon it denies, collapsing into contradiction.</p>
+<p>Basically, Physicalism is explanatorily insufficient and incoherent due to its treatment of consciousness. It fails when redefining consciousness as emergent (especially in the strongly emergent sense, which borders on the magical), when attempting to reduce it materially, and when denying it altogether (see the article on Illusionism linked above, where I say illusion itself is a mode of consciousness, and what I have in the Compilation of Arguments section). There is no possible evidence that could validate Physicalism's claim that consciousness arises from or is reducible to brain states, especially given that all such evidence appears within consciousness. Moreover, Physicalism suffers from deep epistemological problems: physicalists who affirm metaphysics have no non-question-begging justification for the existence of mind-independent matter, while those who reject metaphysics, i.e. pragmatists, suspend judgment on what exists and instead emphasize minimal conceptual frameworks built for predictive validity. But such pragmatists are hardly physicalists at all since they abstain from any ontological/metaphysical claim (though they often have a high credence in the existence of the external world and other minds, which is erroneous for reasons I shall get into as it involves transcendental illusion). That leaves Dualism, Panpsychism, and Idealism. However, Dualism suffers from the intractable interaction problem. <a href="https://www.youtube.com/watch?v=4U7r0XPWkAk&amp;t=1s" target="_blank">Panpsychism suffers from the combination problem</a>. That leaves Idealism. However, most forms of Idealism make the error of asserting the existence of an Absolute, a universal Will, or a Mind-at-Large. These are metaphysical posits that exceed the boundaries of possible experience, committing what Kant described as transcendental illusion. If all knowledge is conditioned by experience, then any claim about a reality beyond consciousness lacks epistemic warrant. Transcendental Solipsism avoids this mistake. It holds that all things (self, world, thought, and differentiation) occur within consciousness, and that there is no epistemic basis for knowledge concerning the existence of anything beyond it. Transcendental Solipsism, unlike other metaphysical positions, does not dogmatically deny the existence of the external world or other minds. Instead, it suspends judgment. It affirms only what is immediately given—consciousness and its contents—while recognizing that inferences beyond this are inherently unverifiable. The question of whether other minds or a world beyond consciousness exist cannot be answered through experience, for any evidence we might invoke necessarily appears within consciousness itself. There is no standpoint outside consciousness from which such claims can be justified. As a result, realism and metaphysical solipsism remain equally conceivable, equally consistent with the structure of experience, and equally unprovable. TS does not assert that only the self exists in a dogmatic sense but rather that there is no epistemic basis to privilege the hypothesis of a world beyond experience over the hypothesis that experience is all there is. Any move to affirm realism—whether scientific, commonsense, or metaphysical—requires positing what is not, and cannot be, given. This does not render realism false, but rather highlights that it is not, and never could be, known. TS is therefore assertoric, not speculative: it asserts only what is necessarily presupposed in the act of appearing, without inflating those appearances into metaphysical claims. In doing so, it preserves the integrity of critique while dissolving the illusions that have long haunted metaphysical thought.</p>
+<p>In terms of my other positions, I'm a moral anti-realist since I deny the coherence of stance independent moral facts. See Kane B's videos on the topic. In terms of my political philosophy, I resonate the most with Byung Chul Han (Psychopolitics and Burnout Society are good ways to start with his work). In terms of my general epistemology, phil of action, and phil of meaning, see Michael Della Rocca's Parmenidean Ascent and its respective chapters on each topic (when subjected to the PSR and Bradley's Regress, the various theories within each topic loose rational support and end up requiring appeal to brute facts).</p>
+</main>
+</article>
+<!-- Compilation of Arguments Page -->
+<div class="page" id="philosophy2">
+<header class="site-header">
+<nav aria-label="Main navigation" class="main-nav" role="navigation">
+<ul>
+<li><a href="#" onclick="showPage('home')">Home</a></li>
+<li><a href="#" onclick="showPage('philosophy')">Philosophy</a></li>
+</ul>
+</nav>
+<h1 class="page-title">Compilation of Arguments</h1>
+</header>
+<main class="page-content" id="main-content">
+<section class="content-section">
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><a class="content-link" href="https://drive.google.com/file/d/1wqHBqQYhTqz-0aSKTokZd5lcCL940RVa/view?usp=sharing" role="link" target="_blank">Against Physicalist Reductionism</a></li>
+<li><a class="content-link" href="https://drive.google.com/file/d/1-5CU375W0Slbc1yYUZtaYbCjSmcmQQSy/view?usp=sharing" role="link" target="_blank">Against Realism</a></li>
+<li><a class="content-link" href="https://drive.google.com/file/d/1sBOJSoF-Nqp0F8vfMwKtTth0BacZTerw/view?usp=sharing" role="link" target="_blank">An Argument Against the Concept of Mind-Independent Matter</a></li>
+<li><a class="content-link" href="https://drive.google.com/file/d/1uB_o2MU6gnXx31rRh4-nUhVrZeKw9rgY/view?usp=sharing" role="link" target="_blank">Bradley's Master Argument</a></li>
+<li><a class="content-link" href="https://drive.google.com/file/d/1kfnIxlDTQtP8kw37PJiy3CoP7MU_OCYL/view?usp=sharing" role="link" target="_blank">Brief Threefold Argument for Idealism</a></li>
+<li><a class="content-link" href="https://drive.google.com/file/d/1VqV5idwlLOjleF1VtI8LSBTigXy6qKR4/view?usp=sharing" role="link" target="_blank">Contemporary Bradley's Regress 1</a></li>
+<li><a class="content-link" href="https://drive.google.com/file/d/1tvW_bfv7stc7hEmIlweNGbWcNnZY-sE1/view?usp=sharing" role="link" target="_blank">Contemporary Bradley's Regress 2</a></li>
+<li><a class="content-link" href="https://drive.google.com/file/d/1YbUP_0a6zg8Jm44qXqUnt1DRuJr1mf46/view?usp=sharing" role="link" target="_blank">One of Bradley's Arguments for the Unreality of Space</a></li>
+<li><a class="content-link" href="https://drive.google.com/file/d/1EBIOyApTR_f85s30EjdcNPE9sK3sppqy/view?usp=sharing" role="link" target="_blank">Valid Reconstruction of Berkeley's Master Argument</a></li>
+</ul>
+</section>
+</main>
+</div>
+<!-- Findings and Recommendations Overview -->
+<div class="page" id="thoughts">
+<header class="site-header">
+<nav aria-label="Main navigation" class="main-nav" role="navigation">
+<ul>
+<li><a href="#" onclick="showPage('home')">Home</a></li>
+<li><a href="#" onclick="showPage('about')">About</a></li>
+</ul>
+</nav>
+<h1 class="page-title">Findings and Recommendations</h1>
+</header>
+<main class="page-content" id="main-content">
+<section class="content-section">
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><a class="content-link" href="#" onclick="showPage('thought4')" role="link">Current Supplements</a></li>
+<li><a class="content-link" href="#" onclick="showPage('thought2')" role="link">(Anecdotal) Health Recommendations</a></li>
+<li><a class="content-link" href="#" onclick="showPage('thought5')" role="link">Safe Products</a></li>
+<li><a class="content-link" href="#" onclick="showPage('thought3')" role="link">Red-Near Infrared Light Recommendations</a></li>
+<li><a class="content-link" href="#" onclick="showPage('thought6')" role="link">Supplement Experiences</a></li>
+<li><a class="content-link" href="#" onclick="showPage('thought1')" role="link">Useful Websites</a></li>
+</ul>
+</section>
+</main>
+</div>
+<!-- Individual Recommendation Pages -->
+<article class="page" id="thought1">
+<header class="site-header">
+<nav aria-label="Main navigation" class="main-nav" role="navigation">
+<ul>
+<li><a href="#" onclick="showPage('home')">Home</a></li>
+<li><a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a></li>
+</ul>
+</nav>
+<h1 class="page-title">Useful Websites</h1>
+</header>
+<main class="page-content" id="main-content">
+<section class="content-section">
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><a class="content-link" href="https://raypeat.com/" role="link" target="_blank">https://raypeat.com/</a></li>
+<li><a class="content-link" href="https://raypeat.rodeo/" role="link" target="_blank">https://raypeat.rodeo/</a></li>
+<li><a class="content-link" href="https://haidut.me/" role="link" target="_blank">https://haidut.me/</a></li>
+<li><a class="content-link" href="https://longestlevers.com/" role="link" target="_blank">https://longestlevers.com/</a></li>
+<li><a class="content-link" href="https://www.toxinless.com/" role="link" target="_blank">https://www.toxinless.com/</a></li>
+<li><a class="content-link" href="https://bioenergetic.forum/" role="link" target="_blank">https://bioenergetic.forum/</a></li>
+<li><a class="content-link" href="https://www.chadnet.org/" role="link" target="_blank">https://www.chadnet.org/</a></li>
+<li><a class="content-link" href="https://recipeats.org/" role="link" target="_blank">https://recipeats.org/</a></li>
+<li><a class="content-link" href="https://based.cooking/" role="link" target="_blank">https://based.cooking/</a></li>
+</ul>
+</section>
+<section class="content-section">
+<header>
+<h2 class="subsection-title">Youtube Channels: Philosophy</h2>
+</header>
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><a class="content-link" href="https://www.youtube.com/@KaneB" role="link" target="_blank">Kane B</a></li>
+<li><a class="content-link" href="https://www.youtube.com/@EmersonGreen" role="link" target="_blank">Emerson Green</a></li>
+<li><a class="content-link" href="https://www.youtube.com/@PhiloofAlexandria" role="link" target="_blank">Daniel Bonevac</a></li>
+<li><a class="content-link" href="https://www.youtube.com/@VictorGijsbers" role="link" target="_blank">Victor Gijsbers</a></li>
+<li><a class="content-link" href="https://www.youtube.com/@CloserToTruthTV" role="link" target="_blank">Closer To Truth</a></li>
+<li><a class="content-link" href="https://www.youtube.com/@drnathanhawkins" role="link" target="_blank">Absolute Philosophy</a></li>
+<li><a class="content-link" href="https://www.youtube.com/@OuroboricEgoism" role="link" target="_blank">Ouroboric Egoism</a></li>
+</ul>
+</section>
+<section class="content-section">
+<header>
+<h2 class="subsection-title">Youtube Channels: Health</h2>
+</header>
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><a class="content-link" href="https://www.youtube.com/@dannyroddy" role="link" target="_blank">Danny Roddy</a></li>
+<li><a class="content-link" href="https://www.youtube.com/@JFwellness" role="link" target="_blank">Jay Feldman</a></li>
+<li><a class="content-link" href="https://www.youtube.com/@analyze.and.optimize" role="link" target="_blank">Analyze and Optimize</a></li>
+<li><a class="content-link" href="https://www.youtube.com/@anabology" role="link" target="_blank">Anabology</a></li>
+</ul>
+</section>
+</main>
+</article>
+<article class="page" id="thought2">
+<header class="site-header">
+<nav aria-label="Main navigation" class="main-nav" role="navigation">
+<ul>
+<li><a href="#" onclick="showPage('home')">Home</a></li>
+<li><a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a></li>
+</ul>
+</nav>
+<h1 class="page-title">(Anecdotal) Health Recommendations</h1>
+</header>
+<main class="page-content" id="main-content">
+<section class="content-section">
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><a class="content-link" href="https://longestlevers.com/fat-loss/honey-diet.html" role="link" target="_blank">Anabology's Honey Diet for Weight Loss and Upregulating Metabolic Rate Through FGF21 (alternatively, fruit til noon, though less effective)</a></li>
+<li><a class="content-link" href="https://haidut.me/?p=2799" role="link" target="_blank">Eat High Carb Low Fat Moderate (Not High) Protein</a></li>
+<li><a class="content-link" href="https://haidut.me/?p=2797" role="link" target="_blank">Avoid PUFA (due to oxidative stress; no nuts, seeds, fish)</a></li>
+<li><a class="content-link" href="https://haidut.me/?p=1477" role="link" target="_blank">Avoid Supplements with Silicon Dioxide and Titanium Dioxide</a></li>
+<li><a class="content-link" href="https://haidut.me/?p=664" role="link" target="_blank">Lower Blue Light On Your Devices/Screens</a></li>
+<li><a class="content-link" href="https://haidut.me/?p=95" role="link" target="_blank">Only Use Physical Sunscreen</a></li>
+<li><a class="content-link" href="https://haidut.me/?p=1409" role="link" target="_blank">Don't Use Glucocorticoids</a></li>
+<li><a class="content-link" href="https://haidut.me/?p=2781" role="link" target="_blank">Eat a Raw Carrot Salad Daily (or eat it whole)</a></li>
+<li><a class="content-link" href="https://haidut.me/?p=2509" role="link" target="_blank">Don't Fast</a></li>
+<li><a class="content-link" href="https://raypeat.com/articles/aging/aspirin-brain-cancer.shtml" role="link" target="_blank">Substitute Tylenol for Aspirin</a></li>
+<li><a class="content-link" href="https://raypeat.com/articles/articles/caffeine.shtml" role="link" target="_blank">Drink More Coffee (instant coffee to avoid myotoxins)</a></li>
+<li><a class="content-link" href="https://haidut.me/?p=2372" role="link" target="_blank">If Depressed Seek Serotonin Antagonists (Idealabs sells some, namely Cyproheptadine, Metergoline, 10-Methoxy-Harmalan, and Lisuride)</a></li>
+<li><a class="content-link" href="https://haidut.me/?p=2520" role="link" target="_blank">Don't Take Fish Oil</a></li>
+<li><a class="content-link" href="https://haidut.me/?p=2482" role="link" target="_blank">Don't Do Endurance Exercise</a></li>
+<li><a class="content-link" href="https://haidut.me/?p=2446" role="link" target="_blank">Avoid Plastic and Most Cleaning Products</a></li>
+<li><a class="content-link" href="https://haidut.me/?p=899" role="link" target="_blank">Don't Use Fluoride</a></li>
+<li><a class="content-link" href="https://haidut.me/?p=2764" role="link" target="_blank">Refuse X-Rays</a></li>
+</ul>
+</section>
+</main>
+</article>
+<article class="page" id="thought3">
+<header class="site-header">
+<nav aria-label="Main navigation" class="main-nav" role="navigation">
+<ul>
+<li><a href="#" onclick="showPage('home')">Home</a></li>
+<li><a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a></li>
+</ul>
+</nav>
+<h1 class="page-title">Red-Near Infrared Light Recommendations</h1>
+</header>
+<main class="page-content" id="main-content">
+<section class="content-section">
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><a class="content-link" href="https://redlightman.com/product/red-infrared-combo-light" role="link" target="_blank">Red-Infrared Combo Light (code raypeatforum)</a></li>
+<li><a class="content-link" href="https://emr-tek.com/en-ca/collections/red-light-therapy/products/firewave" role="link" target="_blank">Expensive Combo Light (use Capital One browser extension for coupons)</a></li>
+<li><a class="content-link" href="https://rubyluxlights.com/collections/light-therapy-bulbs-us-canada-only/products/rubylux-near-infrared-bulb-150-watts" role="link" target="_blank">Near Infrared Bulb 150 Watt</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B0CZHRBH2Z/" role="link" target="_blank">NIR Bulb Alternative (Amazon)</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B0066L0ZRU" role="link" target="_blank">Incandescent Bulb 250 Watt</a></li>
+<li><a class="content-link" href="https://www.premier1supplies.com/p/prima-heat-lamp?srsltid=AfmBOoq-7x5tXp_o8YmwGGKGlXMKBfuCDYNHCIFCHTy3k7-ySOgiy5Lo" role="link" target="_blank">Heat Lamp for Near Infrared or Incandescent Bulb (safest option)</a></li>
+</ul>
+</section>
+</main>
+</article>
+<article class="page" id="thought4">
+<header class="site-header">
+<nav aria-label="Main navigation" class="main-nav" role="navigation">
+<ul>
+<li><a href="#" onclick="showPage('home')">Home</a></li>
+<li><a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a></li>
+</ul>
+</nav>
+<h1 class="page-title">Current Supplements</h1>
+</header>
+<main class="page-content" id="main-content">
+<section class="content-section">
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><a class="content-link" href="https://www.amazon.ca/dp/B0C9WB79FF" role="link" target="_blank">Magnesium Glycinate 425mg</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B08JQQ2RM4" role="link" target="_blank">Caffeine 100mg</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B0BH9949JM?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1" role="link" target="_blank">B-Complex</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B0CJ8RD192" role="link" target="_blank">Benfotiamine 100mg</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B01E8XQ97W?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1" role="link" target="_blank">P5P 50mg (because of the B-Complex)</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B00CP7Q2SA" role="link" target="_blank">B2 200mg</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B003FG4Z84" role="link" target="_blank">Niacinamide 500mg</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/Organika-Glycine-Powder-Proteinogenic-Synthesis/dp/B0CS6QSF4Y?sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;psc=1" role="link" target="_blank">Glycine 500mg</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B09ZTK6F1N" role="link" target="_blank">Calcium Carbonate 500-1000mg</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B07ZMH8RDX" role="link" target="_blank">D3 3000 IU K2 MK7 360mcg</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B0CJL3Z2FK" role="link" target="_blank">L-Theanine 250mg (before bed)</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B0C5S4LZVH" role="link" target="_blank">Zinc Gluconate 10mg (occasionally)</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B00C0BTJGS" role="link" target="_blank">Boron 9mg (until finished)</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B08D7S4NR1" role="link" target="_blank">Saccharomyces Boulardii (occasionally, until finished)</a></li>
+<li><a class="content-link" href="https://ca.iherb.com/pr/bodybio-sodium-butyrate-100-non-gmo-capsules/105881?gad_campaignid=818099273&amp;gad_source=1" role="link" target="_blank">Sodium Butyrate (occasionally, until finished)</a></li>
+<li><span class="content-link-static">Cynoplus (half a tablet in the morning)</span></li>
+<li><a class="content-link" href="https://idealabs.ecwid.com/CortiNon-p70230384" role="link" target="_blank">Cortinon+ 2 drops in morning (until finished)</a></li>
+<li><a class="content-link" href="https://idealabs.ecwid.com/Kuinone-p70230378" role="link" target="_blank">Kuinone (K2 MK4) 3-4 drops (on toothbrush in morning)</a></li>
+<li><a class="content-link" href="https://idealabs.ecwid.com/TocoVit-p70230382" role="link" target="_blank">Tocovit 2 drops before bed (until finished)</a></li>
+<li><a class="content-link" href="https://idealabs.ecwid.com/Metergoline-p72862318" role="link" target="_blank">Metergoline (until finished)</a></li>
+<li><a class="content-link" href="https://idealabs.ecwid.com/Androsterone-p71730339" role="link" target="_blank">Androsterone 2 drops daily (until finished)</a></li>
+<li><span class="content-link-static">Proviron (12.5mg for 34 days, 25mg for 33 days)</span></li>
+</ul>
+</section>
+<section class="content-section">
+<header>
+<h2 class="subsection-title">To Be Experimented With</h2>
+</header>
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><span class="content-link-static">Nothing at the moment</span></li>
+</ul>
+</section>
+<section class="content-section">
+<header>
+<h2 class="subsection-title">Recommendations</h2>
+</header>
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><a class="content-link" href="https://larksupply.co/vitamins/" role="link" target="_blank">Alt Website for Vitamin K2 MK4</a></li>
+<li><span class="content-link-static">Arm Hammer Baking Soda 500mg</span></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B0074JCE90?amp&amp;" role="link" target="_blank">Aspirin</a></li>
+<li><span class="content-link-static">Gelatin</span></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B0973KJV6W" role="link" target="_blank">Magnesium Spray</a></li>
+<li><a class="content-link" href="https://idealabs.ecwid.com/StressNon-p70230377" role="link" target="_blank">Pregnenolone</a></li>
+<li><a class="content-link" href="https://www.bulksupplements.com/en-ca/products/vitamin-b1-thiamine-hcl-powder" role="link" target="_blank">Thiamine HCL</a></li>
+</ul>
+</section>
+</main>
+</article>
+<article class="page" id="thought5">
+<header class="site-header">
+<nav aria-label="Main navigation" class="main-nav" role="navigation">
+<ul>
+<li><a href="#" onclick="showPage('home')">Home</a></li>
+<li><a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a></li>
+</ul>
+</nav>
+<h1 class="page-title">Safe Products</h1>
+</header>
+<main class="page-content" id="main-content">
+<section class="content-section">
+<ul role="list" style="list-style: none; padding: 0; margin: 0;">
+<li><a class="content-link" href="https://www.amazon.ca/dp/B01726HD72" role="link" target="_blank">Cast Iron</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B0011BPMUK" role="link" target="_blank">Salt Low in Microplastics and Heavy Metals</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B001F21JHA" role="link" target="_blank">Soap Bars</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/Kirks-Natural-Nourishing-Cleanser-Original/dp/B07GBFYFPV" role="link" target="_blank">3 in 1 Soap</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B007Z7ODS6" role="link" target="_blank">Hand Sanitizer</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B086Q4Y4LG" role="link" target="_blank">Laundry Soda</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B073HCMYPR" role="link" target="_blank">Toothbrushes</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B08RRTC5SD" role="link" target="_blank">Bamboo Floss</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/Oneroot-Canadian-Raw-Wildflower-Honey/dp/B01CUUF5A2?ref_=ast_sto_dp&amp;th=1" role="link" target="_blank">Honey</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/Nutiva-Organic-Virgin-Coconut-54-ounce/dp/B000GAT6NG" role="link" target="_blank">Coconut Oil</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/Chios-Mastiha-Natural-Mastic-Growers/dp/B00YSO7KRA?psc=1" role="link" target="_blank">Mastic Gum</a></li>
+<li><a class="content-link" href="https://www.amazon.ca/dp/B09LZC2ZT3" role="link" target="_blank">Durable Socks</a></li>
+</ul>
+</section>
+</main>
+</article>
+<article class="page" id="thought6">
+<header class="site-header">
+<nav aria-label="Main navigation" class="main-nav" role="navigation">
+<ul>
+<li><a href="#" onclick="showPage('home')">Home</a></li>
+<li><a href="#" onclick="showPage('thoughts')">Findings and Recommendations</a></li>
+</ul>
+</nav>
+<h1 class="page-title">Supplement Experiences</h1>
+</header>
+<main class="page-content article-content" id="main-content">
+<p>Taking thyroid permanently resolved my chronic insomnia as I was running on stress hormones (always wired but tired). Nothing else would work at that time, including heavy doses of trazodone. It also fixed my poor circulation (though I found t3+t4 more helpful than t3 alone; for instance in taking that combination my body temperature would increase significantly after heavy meals). Thiamine megadoses are interesting; once I had to go to work without having had any sleep the night before, and in taking about 2500mg or more of thiamine, I found myself in a somewhat euphoric energetic state. I've found Cyproheptadine reliable during times where I needed as much sleep as possible for the day after. It's a serotonin antagonist, anti-histamine, and quite the helpful sleeping aid. However, if taken rarely, it will leave you feeling drowsy the day after use, increasing the chances of sleeping in (which can be suboptimal during the week, but therapeutic during the weekend). Recently I tried metergoline, a serotonin antagonist, light dopamine agonist, and anti-prolactin drug, and while I felt normal inside, upon going outside it gave me an almost psychedelic feeling. I felt extremely present, to the point where I was slightly overstimulated (however, doing exercise got rid of that feeling), the world looked brighter, and I felt that it was more beautiful. In the past I found that low doses of methylene blue (5-10mg) plus 500mg sodium bicarbonate would result in long lasting energy, where typically the fatigue after a day of work or hiking would become minimal. However the last few times I had 500mg of sodium bicarb, it didn't sit right in my stomach. My PH may have been too basic during that period, but I've since increased coffee and oj consumption (both being acidic).</p>
+</main>
+</article>
+<script>
+        // Enhanced page management with better accessibility
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            const targetPage = document.getElementById(pageId);
+            
+            if (!targetPage) return;
+            
+            // Hide all pages
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show target page
+            targetPage.classList.add('active');
+            
+            // Focus management for accessibility
+            const mainContent = targetPage.querySelector('#main-content, main');
+            if (mainContent) {
+                mainContent.focus();
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const target = e.target;
+                if (target.classList.contains('section-title') && target.hasAttribute('onclick')) {
+                    e.preventDefault();
+                    target.click();
+                }
+            }
+        });
+        
+            // Initialize page on load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Insert last updated timestamp in About page
+        const ts = document.getElementById('timestamp');
+        if (ts) {
+            ts.textContent = 'Last updated: ' + new Date(document.lastModified).toLocaleDateString('en-CA');
+        }
+    });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Restore preference
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+
+    // Remove any existing toggle to avoid duplicates
+    var existing = document.getElementById('darkModeToggle');
+    if (existing) existing.remove();
+
+    // Create icon button dynamically
+    var btn = document.createElement('button');
+    btn.id = 'darkModeToggle';
+    btn.type = 'button';
+    btn.setAttribute('aria-pressed', document.body.classList.contains('dark-mode'));
+    var label = document.body.classList.contains('dark-mode') ? 'Switch to light mode' : 'Switch to dark mode';
+    btn.setAttribute('aria-label', label);
+    btn.title = label;
+
+    btn.style.position = 'fixed';
+    btn.style.top = '15px';
+    btn.style.right = '15px';
+    btn.style.width = '36px';
+    btn.style.height = '36px';
+    btn.style.display = 'inline-flex';
+    btn.style.alignItems = 'center';
+    btn.style.justifyContent = 'center';
+    btn.style.background = 'transparent';
+    btn.style.border = '1px solid';
+    btn.style.borderColor = getComputedStyle(document.body).getPropertyValue('--border-color').trim() || '#888';
+    btn.style.borderRadius = '9999px';
+    btn.style.padding = '0';
+    btn.style.margin = '0';
+    btn.style.cursor = 'pointer';
+    btn.style.color = document.body.classList.contains('dark-mode') ? '#fff' : '#000';
+    btn.style.zIndex = '999';
+
+    // SVGs
+    var sun = '<svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" xmlns="http://www.w3.org/2000/svg">' +
+              '<circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"></circle>' +
+              '<line x1="12" y1="1" x2="12" y2="4" stroke="currentColor" stroke-width="2"></line>' +
+              '<line x1="12" y1="20" x2="12" y2="23" stroke="currentColor" stroke-width="2"></line>' +
+              '<line x1="1" y1="12" x2="4" y2="12" stroke="currentColor" stroke-width="2"></line>' +
+              '<line x1="20" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"></line>' +
+              '<line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="currentColor" stroke-width="2"></line>' +
+              '<line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"></line>' +
+              '<line x1="4.22" y1="19.78" x2="6.34" y2="17.66" stroke="currentColor" stroke-width="2"></line>' +
+              '<line x1="17.66" y1="6.34" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"></line>' +
+              '</svg>';
+
+    var moon = '<svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" xmlns="http://www.w3.org/2000/svg">' +
+               '<path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 1 0 9.79 9.79z" fill="none" stroke="currentColor" stroke-width="2"></path>' +
+               '</svg>';
+
+    var spanSun = document.createElement('span');
+    spanSun.className = 'icon-sun';
+    spanSun.setAttribute('aria-hidden', 'true');
+    spanSun.innerHTML = sun;
+
+    var spanMoon = document.createElement('span');
+    spanMoon.className = 'icon-moon';
+    spanMoon.setAttribute('aria-hidden', 'true');
+    spanMoon.innerHTML = moon;
+
+    btn.appendChild(spanSun);
+    btn.appendChild(spanMoon);
+
+    // Show right icon
+    function updateIcons() {
+        var dark = document.body.classList.contains('dark-mode');
+        spanSun.style.display = dark ? 'none' : 'inline-block';
+        spanMoon.style.display = dark ? 'inline-block' : 'none';
+        btn.style.color = dark ? '#fff' : '#000';
+        btn.setAttribute('aria-pressed', dark);
+        var lbl = dark ? 'Switch to light mode' : 'Switch to dark mode';
+        btn.setAttribute('aria-label', lbl);
+        btn.title = lbl;
+        // sync border color with CSS var if available
+        var bc = getComputedStyle(document.body).getPropertyValue('--border-color').trim();
+        if (bc) btn.style.borderColor = bc;
+    }
+    updateIcons();
+
+    document.body.appendChild(btn);
+
+    btn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        updateIcons();
+    });
+});
+</script></body>
+</html>
