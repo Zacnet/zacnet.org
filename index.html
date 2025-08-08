@@ -700,50 +700,52 @@ body.dark-mode {
 </main>
 </article>
 <script>
-        // Enhanced page management with better accessibility
-        function showPage(pageId) {
-            const pages = document.querySelectorAll('.page');
-            const targetPage = document.getElementById(pageId);
-            
-            if (!targetPage) return;
-            
-            // Hide all pages
-            pages.forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Show target page
-            targetPage.classList.add('active');
-            
-            // Focus management for accessibility
-            const mainContent = targetPage.querySelector('#main-content, main');
-            if (mainContent) {
-                mainContent.focus();
-            }
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
-        
-        // Keyboard navigation support
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                const target = e.target;
-                if (target.classList.contains('section-title') && target.hasAttribute('onclick')) {
-                    e.preventDefault();
-                    target.click();
-                }
-            }
-        });
-        
-            // Initialize page on load
-    document.addEventListener('DOMContentLoaded', function() {
-        // Insert last updated timestamp in About page
-        const ts = document.getElementById('timestamp');
-        if (ts) {
-            ts.textContent = 'Last updated: ' + new Date(document.lastModified).toLocaleDateString('en-CA');
-        }
-    });
+  // Enhanced page management with better accessibility
+  function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    const targetPage = document.getElementById(pageId);
+    if (!targetPage) return;
+
+    // Hide all pages, show target
+    pages.forEach(p => p.classList.remove('active'));
+    targetPage.classList.add('active');
+
+    // Ensure exactly one #main-content (on the active page)
+    document.querySelectorAll('main#main-content').forEach(m => m.removeAttribute('id'));
+    const targetMain = targetPage.querySelector('main');
+    if (targetMain) targetMain.id = 'main-content';
+
+    // Focus and scroll
+    if (targetMain) targetMain.focus();
+    window.scrollTo(0, 0);
+  }
+
+  // Keyboard navigation support
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') &&
+        e.target.classList.contains('section-title') &&
+        e.target.hasAttribute('onclick')) {
+      e.preventDefault();
+      e.target.click();
+    }
+  });
+
+  // Initialize page on load
+  document.addEventListener('DOMContentLoaded', function () {
+    // Insert last updated timestamp in About page
+    const ts = document.getElementById('timestamp');
+    if (ts) {
+      ts.textContent = 'Last updated: ' + new Date(document.lastModified).toLocaleDateString('en-CA');
+    }
+
+    // Make sure only the active page owns #main-content at start
+    const active = document.querySelector('.page.active') || document.getElementById('home');
+    if (active) {
+      document.querySelectorAll('main#main-content').forEach(m => m.removeAttribute('id'));
+      const m = active.querySelector('main');
+      if (m) m.id = 'main-content';
+    }
+  });
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
