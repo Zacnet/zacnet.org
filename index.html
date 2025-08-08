@@ -777,7 +777,6 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.style.justifyContent = 'center';
     btn.style.background = 'transparent';
     btn.style.border = '1px solid';
-    btn.style.borderColor = getComputedStyle(document.body).getPropertyValue('--border-color').trim() || '#888';
     btn.style.borderRadius = '9999px';
     btn.style.padding = '0';
     btn.style.margin = '0';
@@ -825,9 +824,6 @@ document.addEventListener('DOMContentLoaded', function() {
         var lbl = dark ? 'Switch to light mode' : 'Switch to dark mode';
         btn.setAttribute('aria-label', lbl);
         btn.title = lbl;
-        // sync border color with CSS var if available
-        var bc = getComputedStyle(document.body).getPropertyValue('--border-color').trim();
-        if (bc) btn.style.borderColor = bc;
     }
     updateIcons();
 
