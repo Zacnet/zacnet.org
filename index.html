@@ -257,8 +257,6 @@
 #darkModeToggle:active { transform: scale(0.98); }
 
 /* === Make the toggle easier to see (override base) === */
-#darkModeToggle { border-color: #888; }
-body.dark-mode #darkModeToggle { border-color: #666; }
 #darkModeToggle:hover { background: rgba(0,0,0,0.04); }
 body.dark-mode #darkModeToggle:hover { background: rgba(255,255,255,0.08); }
 
@@ -776,7 +774,6 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.style.alignItems = 'center';
     btn.style.justifyContent = 'center';
     btn.style.background = 'transparent';
-    btn.style.border = '1px solid';
     btn.style.borderRadius = '9999px';
     btn.style.padding = '0';
     btn.style.margin = '0';
